@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>APIS MARKET LAB | Inteligencia Comercial & Analítica</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0a0a0a;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* Keyframes replicating the framer-motion hero behavior */
+    @keyframes slideUpWord {
+      0% {
+        transform: translateY(115%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0%);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeDownAnim {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeUpAnim {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .word-reveal-1 {
+      animation: slideUpWord 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards;
+      transform: translateY(115%);
+    }
+    .word-reveal-2 {
+      animation: slideUpWord 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.54s forwards;
+      transform: translateY(115%);
+    }
+    .word-reveal-3 {
+      animation: slideUpWord 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.68s forwards;
+      transform: translateY(115%);
+    }
+
+    .animate-fadedown-1 {
+      animation: fadeDownAnim 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0s forwards;
+      opacity: 0;
+    }
+    .animate-fadedown-2 {
+      animation: fadeDownAnim 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
+      opacity: 0;
+    }
+    .animate-fadedown-3 {
+      animation: fadeDownAnim 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+      opacity: 0;
+    }
+
+    .stat-fadeup-1 {
+      animation: fadeUpAnim 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.12s forwards;
+      opacity: 0;
+    }
+    .stat-fadeup-2 {
+      animation: fadeUpAnim 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.24s forwards;
+      opacity: 0;
+    }
+    .stat-fadeup-3 {
+      animation: fadeUpAnim 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.36s forwards;
+      opacity: 0;
+    }
+
+    .footer-fadeup-1 {
+      animation: fadeUpAnim 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.36s forwards;
+      opacity: 0;
+    }
+    .footer-fadeup-2 {
+      animation: fadeUpAnim 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.48s forwards;
+      opacity: 0;
+    }
+    .footer-fadeup-3 {
+      animation: fadeUpAnim 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards;
+      opacity: 0;
+    }
+
+    /* Custom underline hover animation for nav links */
+    .nav-link-hover {
+      position: relative;
+    }
+    .nav-link-hover::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #F59E0B;
+      transition: width 0.2s ease-in-out;
+    }
+    .nav-link-hover:hover::after {
+      width: 100%;
+    }
+  </style>
+</head>
+<body class="bg-[#0a0a0a] text-white selection:bg-[#F59E0B] selection:text-neutral-950">
+
+  <section class="relative min-h-screen w-full flex flex-col justify-between overflow-hidden uppercase tracking-widest font-semibold text-white select-none">
+    
+    <!-- 1. Background Video and Dark Vignette Overlays -->
+    <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none -z-10">
+      <video
+        autoplay
+        loop
+        muted
+        playsinline
+        class="absolute inset-0 w-full h-full object-cover"
+      >
+        <source
+          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260517_222138_3e3205be-3364-417b-a64a-bfe087acbec4.mp4"
+          type="video/mp4"
+        />
+      </video>
+      <div class="absolute inset-0 bg-neutral-950/55 backdrop-brightness-[0.85] bg-gradient-to-t from-neutral-950/85 via-neutral-950/30 to-neutral-950/70"></div>
+    </div>
+
+    <!-- 2. Header & Navigation Bar -->
+    <header class="relative z-20 w-full flex items-center justify-between px-5 sm:px-8 md:px-12 pt-5 md:pt-6">
+      <div class="flex items-center animate-fadedown-1">
+        <a href="#" class="flex items-center group cursor-pointer focus:outline-none">
+          <div class="w-8 h-8 rounded-full border-2 border-[#F59E0B] flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shadow-[0_0_12px_rgba(245,158,11,0.3)]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#F59E0B]"></div>
+          </div>
+          <span class="text-sm font-semibold tracking-widest text-white ml-3 hidden sm:inline-block">
+            APIS MARKET LAB
+          </span>
+        </a>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-8 animate-fadedown-2">
+        <a href="#servicios" class="text-xs font-semibold tracking-widest uppercase text-white/90 hover:text-white transition-colors py-1 nav-link-hover">
+          SERVICIOS
+        </a>
+        <a href="#metodologia" class="text-xs font-semibold tracking-widest uppercase text-white/90 hover:text-white transition-colors py-1 nav-link-hover">
+          METODOLOGÍA
+        </a>
+        <a href="#estudios" class="text-xs font-semibold tracking-widest uppercase text-white/90 hover:text-white transition-colors py-1 nav-link-hover">
+          ESTUDIOS
+        </a>
+        <a href="#contacto" class="text-xs font-semibold tracking-widest uppercase text-white/90 hover:text-white transition-colors py-1 nav-link-hover">
+          CONTACTO
+        </a>
+      </nav>
+
+      <div class="animate-fadedown-3 flex items-center gap-3">
+        <button
+          id="btn-open-menu"
+          type="button"
+          aria-label="Abrir menú"
+          class="w-9 h-9 rounded-full bg-neutral-900/60 hover:bg-neutral-800/80 backdrop-blur-md border border-white/15 flex flex-col items-center justify-center gap-1 transition-all duration-200 cursor-pointer hover:border-white/30"
+        >
+          <span class="w-4 h-0.5 bg-white rounded-full"></span>
+          <span class="w-4 h-0.5 bg-white rounded-full"></span>
+          <span class="w-4 h-0.5 bg-white rounded-full"></span>
+        </button>
+      </div>
+    </header>
+
+    <div
+      id="mobile-menu"
+      class="fixed inset-0 z-50 bg-neutral-950/95 backdrop-blur-md flex flex-col p-6 sm:p-8 uppercase tracking-widest font-semibold text-white transition-all duration-300 opacity-0 pointer-events-none -translate-y-4"
+    >
+      <div class="flex items-center justify-between">
+        <div class="flex items-center">
+          <div class="w-8 h-8 rounded-full border-2 border-[#F59E0B] flex items-center justify-center shadow-[0_0_12px_rgba(245,158,11,0.3)]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#F59E0B]"></div>
+          </div>
+          <span class="text-sm font-semibold tracking-widest text-white ml-3">
+            APIS MARKET LAB
+          </span>
+        </div>
+
+        <button
+          id="btn-close-menu"
+          type="button"
+          aria-label="Cerrar menú"
+          class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center text-white transition-colors cursor-pointer"
+        >
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="flex flex-col space-y-8 mt-16 text-2xl sm:text-3xl font-semibold tracking-widest text-white">
+        <a href="#servicios" class="mobile-nav-link hover:text-[#F59E0B] transition-colors inline-block">SERVICIOS</a>
+        <a href="#metodologia" class="mobile-nav-link hover:text-[#F59E0B] transition-colors inline-block">METODOLOGÍA</a>
+        <a href="#estudios" class="mobile-nav-link hover:text-[#F59E0B] transition-colors inline-block">ESTUDIOS</a>
+        <a href="#contacto" class="mobile-nav-link hover:text-[#F59E0B] transition-colors inline-block">CONTACTO</a>
+      </div>
+
+      <div class="mt-auto pt-8 border-t border-white/10">
+        <a
+          href="#contacto"
+          class="mobile-nav-link text-xl font-semibold text-[#F59E0B] flex items-center gap-2 hover:opacity-80 transition-opacity"
+        >
+          <span>INICIAR PROYECTO</span>
+          <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="relative z-10 flex-1 flex items-center justify-end px-5 sm:px-8 md:px-12 py-8 md:py-0">
+      <div class="flex items-start gap-5 sm:gap-8 md:gap-10 text-right">
+        
+        <!-- Stat 1 -->
+        <div class="flex flex-col items-end stat-fadeup-1">
+          <div
+            style="font-size: clamp(1.5rem, 5vw, 3.5rem);"
+            class="font-semibold text-white leading-none tracking-tight flex items-baseline justify-end drop-shadow-md"
+          >
+            <span class="text-[#F59E0B] text-[0.5em] font-semibold mr-0.5 align-baseline">+</span>
+            <span>100%</span>
+          </div>
+          <span class="text-[10px] sm:text-xs md:text-sm font-semibold tracking-widest uppercase text-neutral-300 whitespace-pre-line leading-tight mt-1.5 sm:mt-2">
+            DATA-DRIVEN<br>INSIGHTS
+          </span>
+        </div>
+
+        <!-- Stat 2 -->
+        <div class="flex flex-col items-end stat-fadeup-2">
+          <div
+            style="font-size: clamp(1.5rem, 5vw, 3.5rem);"
+            class="font-semibold text-white leading-none tracking-tight flex items-baseline justify-end drop-shadow-md"
+          >
+            <span class="text-[#F59E0B] text-[0.5em] font-semibold mr-0.5 align-baseline">+</span>
+            <span>50</span>
+          </div>
+          <span class="text-[10px] sm:text-xs md:text-sm font-semibold tracking-widest uppercase text-neutral-300 whitespace-pre-line leading-tight mt-1.5 sm:mt-2">
+            ESTUDIOS &<br>BENCHMARKS
+          </span>
+        </div>
+
+        <!-- Stat 3 -->
+        <div class="flex flex-col items-end stat-fadeup-3">
+          <div
+            style="font-size: clamp(1.5rem, 5vw, 3.5rem);"
+            class="font-semibold text-white leading-none tracking-tight flex items-baseline justify-end drop-shadow-md"
+          >
+            <span>360</span>
+            <span class="text-[#F59E0B] text-[0.5em] font-semibold ml-0.5 align-baseline">°</span>
+          </div>
+          <span class="text-[10px] sm:text-xs md:text-sm font-semibold tracking-widest uppercase text-neutral-300 whitespace-pre-line leading-tight mt-1.5 sm:mt-2">
+            VISIÓN DE<br>MERCADO
+          </span>
+        </div>
+
+      </div>
+    </div>
+
+    <footer class="relative z-10 px-5 sm:px-8 md:px-12 pb-8 md:pb-12 flex flex-col gap-6 md:gap-12">
+      <!-- Row A: Tagline + Action Button -->
+      <div class="flex flex-row items-center justify-between gap-4">
+        <p class="footer-fadeup-1 text-[10px] sm:text-xs md:text-sm font-semibold tracking-widest text-neutral-300 max-w-[160px] md:max-w-xs leading-relaxed">
+          INTELIGENCIA COMERCIAL /<br />
+          ESTRATEGIA ACCIONABLE /<br />
+          CRECIMIENTO REAL
+        </p>
+
+        <a
+          href="#contacto"
+          class="footer-fadeup-2 text-base sm:text-xl md:text-2xl text-[#F59E0B] font-semibold whitespace-nowrap flex items-center gap-2 hover:opacity-80 transition-opacity group cursor-pointer"
+        >
+          <span>AGENDAR CONSULTORÍA</span>
+          <i data-lucide="arrow-up-right" class="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+        </a>
+      </div>
+
+      <!-- Row B: Sub-description + Giant Words with Overflow Hidden Slide Up -->
+      <div class="flex flex-row items-end justify-between gap-3 sm:gap-4">
+        <div class="footer-fadeup-3 w-[140px] sm:w-[200px] md:w-[300px] shrink-0 mb-1 sm:mb-2">
+          <p class="text-[9px] sm:text-xs md:text-sm font-semibold tracking-widest uppercase text-neutral-400 text-left md:text-right leading-snug">
+            CONSULTORÍA ESPECIALIZADA EN INVESTIGACIÓN DE MERCADOS, ANALÍTICA DE
+            NEGOCIOS Y COMPORTAMIENTO DEL CONSUMIDOR.
+          </p>
+        </div>
+
+        <div class="flex flex-col items-end select-none">
+          <div class="overflow-hidden leading-[0.88] block py-0.5">
+            <h1
+              style="font-size: clamp(2.2rem, 9.5vw, 9.5rem); lineHeight: 0.88;"
+              class="word-reveal-1 font-semibold uppercase text-white text-right m-0 tracking-tight sm:tracking-normal drop-shadow-lg"
+            >
+              CIENCIA
+            </h1>
+          </div>
+          <div class="overflow-hidden leading-[0.88] block py-0.5">
+            <h1
+              style="font-size: clamp(2.2rem, 9.5vw, 9.5rem); lineHeight: 0.88;"
+              class="word-reveal-2 font-semibold uppercase text-white text-right m-0 tracking-tight sm:tracking-normal drop-shadow-lg"
+            >
+              MERCADO
+            </h1>
+          </div>
+          <div class="overflow-hidden leading-[0.88] block py-0.5">
+            <h1
+              style="font-size: clamp(2.2rem, 9.5vw, 9.5rem); lineHeight: 0.88;"
+              class="word-reveal-3 font-semibold uppercase text-white text-right m-0 tracking-tight sm:tracking-normal drop-shadow-lg"
+            >
+              PODER
+            </h1>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <section id="servicios" class="relative py-28 px-5 sm:px-8 md:px-12 border-t border-neutral-900 bg-neutral-950">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-[#F59E0B] text-xs font-bold tracking-widest uppercase mb-4">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            <span>CAPACIDADES ESTRATÉGICAS</span>
+          </div>
+          <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight">
+            SOLUCIONES <span class="text-[#F59E0B]">A MEDIDA</span>
+          </h2>
+        </div>
+        <p class="text-neutral-400 text-xs sm:text-sm max-w-md uppercase tracking-wider leading-relaxed">
+          Diseñamos sistemas de inteligencia que convierten la incertidumbre de mercado en ventajas competitivas medibles y rentables.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Service 1 -->
+        <div class="group p-8 rounded-2xl bg-neutral-900/40 border border-neutral-800/80 hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center text-[#F59E0B]">
+                <i data-lucide="search" class="w-6 h-6"></i>
+              </div>
+              <span class="text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-md bg-white/5 border border-white/10 text-neutral-400">
+                FUNDACIONAL
+              </span>
+            </div>
+            <h3 class="text-xl font-bold tracking-wider mb-2 group-hover:text-amber-400 transition-colors">
+              INVESTIGACIÓN DE MERCADOS
+            </h3>
+            <p class="text-neutral-400 text-xs sm:text-sm tracking-wide leading-relaxed mb-6 font-normal">
+              Rigor cuantitativo y cualitativo para validar proyectos, dimensionamiento de demanda (TAM/SAM/SOM) y análisis de elasticidad de precios.
+            </p>
+            <ul class="space-y-2 text-xs text-neutral-300 tracking-wider">
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#F59E0B]"></i> Muestreo representativo probabilístico</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#F59E0B]"></i> Paneles de evaluación y Focus Groups</li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-neutral-800/60">
+            <a href="#contacto" class="text-xs font-bold text-[#F59E0B] flex items-center gap-1.5 hover:underline">
+              <span>SOLICITAR ALCANCE</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="group p-8 rounded-2xl bg-neutral-900/40 border border-neutral-800/80 hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center text-[#F59E0B]">
+                <i data-lucide="database" class="w-6 h-6"></i>
+              </div>
+              <span class="text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-md bg-white/5 border border-white/10 text-neutral-400">
+                TECNOLOGÍA
+              </span>
+            </div>
+            <h3 class="text-xl font-bold tracking-wider mb-2 group-hover:text-amber-400 transition-colors">
+              BUSINESS INTELLIGENCE & BI
+            </h3>
+            <p class="text-neutral-400 text-xs sm:text-sm tracking-wide leading-relaxed mb-6 font-normal">
+              Ecosistemas analíticos automatizados en Power BI y Looker Studio. Conectamos bases transaccionales, CRM y ERP en tableros ejecutivos.
+            </p>
+            <ul class="space-y-2 text-xs text-neutral-300 tracking-wider">
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#F59E0B]"></i> Pipelines automatizados sin errores manuales</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#F59E0B]"></i> Alertas predictivas de margen y rotación</li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-neutral-800/60">
+            <a href="#contacto" class="text-xs font-bold text-[#F59E0B] flex items-center gap-1.5 hover:underline">
+              <span>SOLICITAR ALCANCE</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="group p-8 rounded-2xl bg-neutral-900/40 border border-neutral-800/80 hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center text-[#F59E0B]">
+                <i data-lucide="target" class="w-6 h-6"></i>
+              </div>
+              <span class="text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-md bg-white/5 border border-white/10 text-neutral-400">
+                AUDITORÍA
+              </span>
+            </div>
+            <h3 class="text-xl font-bold tracking-wider mb-2 group-hover:text-amber-400 transition-colors">
+              COMPORTAMIENTO DEL CONSUMIDOR
+            </h3>
+            <p class="text-neutral-400 text-xs sm:text-sm tracking-wide leading-relaxed mb-6 font-normal">
+              Auditorías presenciales y digitales de experiencia de compra. Análisis de churn rate, fidelización y psicología de decisiones en checkout.
+            </p>
+            <ul class="space-y-2 text-xs text-neutral-300 tracking-wider">
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#F59E0B]"></i> Customer Journey Mapping de extremo a extremo</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#F59E0B]"></i> Pruebas de usabilidad e impacto en góndola/canal</li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-neutral-800/60">
+            <a href="#contacto" class="text-xs font-bold text-[#F59E0B] flex items-center gap-1.5 hover:underline">
+              <span>SOLICITAR ALCANCE</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="group p-8 rounded-2xl bg-neutral-900/40 border border-neutral-800/80 hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center text-[#F59E0B]">
+                <i data-lucide="bar-chart-3" class="w-6 h-6"></i>
+              </div>
+              <span class="text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-md bg-white/5 border border-white/10 text-neutral-400">
+                ACELERACIÓN
+              </span>
+            </div>
+            <h3 class="text-xl font-bold tracking-wider mb-2 group-hover:text-amber-400 transition-colors">
+              ESTRATEGIA & DIAGNÓSTICO COMERCIAL
+            </h3>
+            <p class="text-neutral-400 text-xs sm:text-sm tracking-wide leading-relaxed mb-6 font-normal">
+              Alineación de cuotas de ventas, optimización de embudos comerciales B2B/B2C y matrices de competencia basadas en evidencia real.
+            </p>
+            <ul class="space-y-2 text-xs text-neutral-300 tracking-wider">
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#F59E0B]"></i> Modelos de previsión de ingresos (Forecasting)</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#F59E0B]"></i> Rediseño de incentivos y estructura de ventas</li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-neutral-800/60">
+            <a href="#contacto" class="text-xs font-bold text-[#F59E0B] flex items-center gap-1.5 hover:underline">
+              <span>SOLICITAR ALCANCE</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="metodologia" class="relative py-28 px-5 sm:px-8 md:px-12 border-t border-neutral-900 bg-[#0a0a0a]">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-[#F59E0B] text-xs font-bold tracking-widest uppercase mb-4">
+            <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+            <span>EL PROCESO</span>
+          </div>
+          <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight">
+            METODOLOGÍA <span class="text-[#F59E0B]">ACCIONABLE</span>
+          </h2>
+        </div>
+        <p class="text-neutral-400 text-xs sm:text-sm max-w-md uppercase tracking-wider leading-relaxed">
+          Cada fase está diseñada para eliminar sesgos y entregar métricas ejecutables en plazos definidos.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="p-8 rounded-2xl bg-neutral-900/30 border border-neutral-800 flex flex-col justify-between">
+          <div>
+            <span class="text-4xl font-black text-[#F59E0B]/40 block mb-4">01</span>
+            <h3 class="text-base font-bold uppercase tracking-wider mb-2">EXTRACCIÓN & LEVANTAMIENTO</h3>
+            <p class="text-neutral-400 text-xs tracking-wider leading-relaxed">
+              Consolidación de bases primarias, censales o encuestas estructuradas sin pérdida de integridad.
+            </p>
+          </div>
+          <div class="mt-8 text-[10px] uppercase font-bold text-amber-500">FASE INICIAL</div>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-neutral-900/30 border border-neutral-800 flex flex-col justify-between">
+          <div>
+            <span class="text-4xl font-black text-[#F59E0B]/40 block mb-4">02</span>
+            <h3 class="text-base font-bold uppercase tracking-wider mb-2">MODELADO & ANALÍTICA</h3>
+            <p class="text-neutral-400 text-xs tracking-wider leading-relaxed">
+              Aplicación de métodos estadísticos para aislar patrones de compra, correlaciones y dispersión.
+            </p>
+          </div>
+          <div class="mt-8 text-[10px] uppercase font-bold text-amber-500">PROCESAMIENTO</div>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-neutral-900/30 border border-neutral-800 flex flex-col justify-between">
+          <div>
+            <span class="text-4xl font-black text-[#F59E0B]/40 block mb-4">03</span>
+            <h3 class="text-base font-bold uppercase tracking-wider mb-2">DASHBOARDING DINÁMICO</h3>
+            <p class="text-neutral-400 text-xs tracking-wider leading-relaxed">
+              Visualizaciones interactivas intuitivas diseñadas para directores que demandan claridad en segundos.
+            </p>
+          </div>
+          <div class="mt-8 text-[10px] uppercase font-bold text-amber-500">ACCESIBILIDAD</div>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-neutral-900/30 border border-neutral-800 flex flex-col justify-between">
+          <div>
+            <span class="text-4xl font-black text-[#F59E0B]/40 block mb-4">04</span>
+            <h3 class="text-base font-bold uppercase tracking-wider mb-2">PLAN DE ACCIÓN COMERCIAL</h3>
+            <p class="text-neutral-400 text-xs tracking-wider leading-relaxed">
+              Entregables priorizados por retorno de inversión (ROI) con acompañamiento de adopción en equipo.
+            </p>
+          </div>
+          <div class="mt-8 text-[10px] uppercase font-bold text-amber-500">EJECUCIÓN</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="estudios" class="relative py-28 px-5 sm:px-8 md:px-12 border-t border-neutral-900 bg-neutral-950">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-[#F59E0B] text-xs font-bold tracking-widest uppercase mb-4">
+            <i data-lucide="trending-up" class="w-3.5 h-3.5"></i>
+            <span>EVIDENCIA Y MÉTRICAS</span>
+          </div>
+          <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight">
+            ESTUDIOS & <span class="text-[#F59E0B]">RESULTADOS</span>
+          </h2>
+        </div>
+        <p class="text-neutral-400 text-xs sm:text-sm max-w-md uppercase tracking-wider leading-relaxed">
+          Proyectos reales donde la ciencia aplicada transformó la rentabilidad de las organizaciones.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-8 rounded-2xl bg-neutral-900/40 border border-neutral-800 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-bold text-[#F59E0B] uppercase tracking-widest block mb-2">MANUFACTURA B2B</span>
+            <h3 class="text-lg font-bold uppercase mb-4">OPTIMIZACIÓN DE PACKAGING & PRECIOS</h3>
+            <div class="text-2xl font-black text-white mb-3">+28% Margen Bruto</div>
+            <p class="text-xs text-neutral-400 leading-relaxed tracking-wide mb-6">
+              Estudio de sensibilidad de precio conjunto y auditoría de canal que redujo rotación de clientes mayoristas.
+            </p>
+          </div>
+          <div class="flex gap-2 flex-wrap">
+            <span class="text-[9px] uppercase px-2.5 py-1 rounded bg-neutral-800 text-neutral-300">Elasticidad</span>
+            <span class="text-[9px] uppercase px-2.5 py-1 rounded bg-neutral-800 text-neutral-300">Conjoint Test</span>
+          </div>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-neutral-900/40 border border-neutral-800 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-bold text-[#F59E0B] uppercase tracking-widest block mb-2">RETAIL MULTICANAL</span>
+            <h3 class="text-lg font-bold uppercase mb-4">CANIBALIZACIÓN & GEO-DEMANDA</h3>
+            <div class="text-2xl font-black text-white mb-3">94% Precisión Stock</div>
+            <p class="text-xs text-neutral-400 leading-relaxed tracking-wide mb-6">
+              Modelado de radios de cobertura territorial para 18 sucursales, erradicando competencia entre puntos propios.
+            </p>
+          </div>
+          <div class="flex gap-2 flex-wrap">
+            <span class="text-[9px] uppercase px-2.5 py-1 rounded bg-neutral-800 text-neutral-300">Geomarketing</span>
+            <span class="text-[9px] uppercase px-2.5 py-1 rounded bg-neutral-800 text-neutral-300">Power BI</span>
+          </div>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-neutral-900/40 border border-neutral-800 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-bold text-[#F59E0B] uppercase tracking-widest block mb-2">SERVICIOS & SAAS</span>
+            <h3 class="text-lg font-bold uppercase mb-4">BENCHMARK DE VALOR PERCIBIDO</h3>
+            <div class="text-2xl font-black text-white mb-3">3.2x Tasa Calificados</div>
+            <p class="text-xs text-neutral-400 leading-relaxed tracking-wide mb-6">
+              Investigación a ciegas sobre oferta diferencial frente a competidores directos, rediseñando el pitch comercial.
+            </p>
+          </div>
+          <div class="flex gap-2 flex-wrap">
+            <span class="text-[9px] uppercase px-2.5 py-1 rounded bg-neutral-800 text-neutral-300">Mystery B2B</span>
+            <span class="text-[9px] uppercase px-2.5 py-1 rounded bg-neutral-800 text-neutral-300">Posicionamiento</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="relative py-28 px-5 sm:px-8 md:px-12 border-t border-neutral-900 bg-[#0a0a0a]">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <div class="lg:col-span-5 flex flex-col justify-between">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-[#F59E0B] text-xs font-bold tracking-widest uppercase mb-4">
+              <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+              <span>CONFIDENCIALIDAD TOTAL</span>
+            </div>
+            <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight mb-6">
+              INICIAR <span class="text-[#F59E0B]">DIAGNÓSTICO</span>
+            </h2>
+            <p class="text-neutral-400 text-xs sm:text-sm tracking-wide leading-relaxed mb-8">
+              Cuéntanos sobre tu mercado, tu reto actual de ventas o los datos que buscas estructurar. Agendamos una sesión de diagnóstico sin costo.
+            </p>
+
+            <div class="space-y-4 text-xs tracking-wider">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center text-[#F59E0B]">
+                  <i data-lucide="mail" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <div class="text-[9px] text-neutral-500 font-bold uppercase">CORREO DIRECTO</div>
+                  <a href="mailto:contacto@apismarketlab.com" class="hover:text-amber-400 font-semibold">contacto@apismarketlab.com</a>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center text-[#F59E0B]">
+                  <i data-lucide="phone" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <div class="text-[9px] text-neutral-500 font-bold uppercase">WHATSAPP / CONSULTA RÁPIDA</div>
+                  <a href="https://wa.me/5215500000000" target="_blank" class="hover:text-amber-400 font-semibold">+52 (55) 0000-0000</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-12 pt-6 border-t border-neutral-900 text-[10px] text-neutral-500 tracking-widest">
+            APIS MARKET LAB • DATA-DRIVEN MARKET INTELLIGENCE
+          </div>
+        </div>
+
+        <!-- Form Column -->
+        <div class="lg:col-span-7">
+          <div class="p-8 sm:p-10 rounded-2xl bg-neutral-900/60 border border-neutral-800">
+            <div id="form-success" class="hidden text-center py-12">
+              <div class="w-14 h-14 rounded-full bg-amber-500/20 border border-[#F59E0B] text-[#F59E0B] flex items-center justify-center mx-auto mb-4">
+                <i data-lucide="check-circle-2" class="w-8 h-8"></i>
+              </div>
+              <h3 class="text-xl font-bold uppercase tracking-wider mb-2">SOLICITUD ENVIADA</h3>
+              <p class="text-neutral-400 text-xs tracking-wider max-w-sm mx-auto mb-6">
+                Un consultor principal se pondrá en contacto contigo en menos de 24 horas para coordinar la sesión.
+              </p>
+              <button
+                id="btn-reset-form"
+                class="px-6 py-2.5 rounded-full bg-neutral-800 hover:bg-neutral-700 text-xs font-bold uppercase tracking-widest transition-colors"
+              >
+                Enviar otra consulta
+              </button>
+            </div>
+
+            <form id="contact-form" class="space-y-6">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-[10px] font-bold uppercase tracking-widest text-neutral-300 mb-2">Nombre Completo *</label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="Tu nombre"
+                    class="w-full px-4 py-3 rounded-xl bg-neutral-950 border border-neutral-800 focus:border-[#F59E0B] focus:outline-none text-xs text-white placeholder-neutral-600 transition-colors"
+                  />
+                </div>
+                <div>
+                  <label class="block text-[10px] font-bold uppercase tracking-widest text-neutral-300 mb-2">Correo Corporativo *</label>
+                  <input
+                    type="email"
+                    required
+                    placeholder="correo@empresa.com"
+                    class="w-full px-4 py-3 rounded-xl bg-neutral-950 border border-neutral-800 focus:border-[#F59E0B] focus:outline-none text-xs text-white placeholder-neutral-600 transition-colors"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-[10px] font-bold uppercase tracking-widest text-neutral-300 mb-2">Área de Interés</label>
+                <select class="w-full px-4 py-3 rounded-xl bg-neutral-950 border border-neutral-800 focus:border-[#F59E0B] focus:outline-none text-xs text-white transition-colors">
+                  <option>Investigación de Mercados y Viabilidad</option>
+                  <option>Dashboards y Business Intelligence</option>
+                  <option>Auditoría de Consumidor & Journey</option>
+                  <option>Diagnóstico y Estrategia Comercial</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-[10px] font-bold uppercase tracking-widest text-neutral-300 mb-2">Detalle del Reto *</label>
+                <textarea
+                  required
+                  rows="4"
+                  placeholder="Describe brevemente tu objetivo comercial o de investigación..."
+                  class="w-full px-4 py-3 rounded-xl bg-neutral-950 border border-neutral-800 focus:border-[#F59E0B] focus:outline-none text-xs text-white placeholder-neutral-600 transition-colors resize-none"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full py-4 rounded-xl bg-[#F59E0B] hover:bg-amber-400 text-neutral-950 font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer shadow-[0_0_15px_rgba(245,158,11,0.2)] hover:shadow-[0_0_20px_rgba(245,158,11,0.4)]"
+              >
+                <i data-lucide="send" class="w-4 h-4"></i>
+                <span>SOLICITAR CONSULTORÍA INICIAL</span>
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Initialize Lucide SVG icons
+    lucide.createIcons();
+
+    // Mobile menu toggle logic
+    const btnOpen = document.getElementById('btn-open-menu');
+    const btnClose = document.getElementById('btn-close-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.querySelectorAll('.mobile-nav-link');
+
+    function openMenu() {
+      mobileMenu.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-4');
+      mobileMenu.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      mobileMenu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+      mobileMenu.classList.add('opacity-0', 'pointer-events-none', '-translate-y-4');
+      document.body.style.overflow = '';
+    }
+
+    btnOpen.addEventListener('click', openMenu);
+    btnClose.addEventListener('click', closeMenu);
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Interactive contact form logic
+    const contactForm = document.getElementById('contact-form');
+    const formSuccess = document.getElementById('form-success');
+    const btnReset = document.getElementById('btn-reset-form');
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      contactForm.classList.add('hidden');
+      formSuccess.classList.remove('hidden');
+      lucide.createIcons();
+    });
+
+    btnReset.addEventListener('click', () => {
+      contactForm.reset();
+      formSuccess.classList.add('hidden');
+      contactForm.classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>
