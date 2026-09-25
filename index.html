@@ -1,205 +1,351 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>APIS MARKET LAB | Inteligencia Comercial & Analítica</title>
-
-  <!-- Google Fonts: Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APIS Market Lab — Inteligencia Comercial & Estrategia de Mercado</title>
+  
+  <!-- Fuente Google Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Lucide Icons CDN -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandDark: '#1E2A2A',
+            brandSurface: '#162222',
+            brandGold: '#B59963',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
 
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #0a0a0a;
+    /* ========================================================================= */
+    /* 1. ESTILOS GLOBALES Y PALETA DE COLORES (#1E2A2A & #B59963)               */
+    /* ========================================================================= */
+    :root {
+      --brand-dark: #1E2A2A;
+      --brand-surface: #162222;
+      --brand-gold: #B59963;
+      --brand-gold-glow: rgba(181, 153, 99, 0.35);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      background-color: #1E2A2A;
       color: #ffffff;
       overflow-x: hidden;
-    }
-
-    /* Keyframes replicating the framer-motion hero behavior */
-    @keyframes slideUpWord {
-      0% {
-        transform: translateY(115%);
-        opacity: 0;
-      }
-      100% {
-        transform: translateY(0%);
-        opacity: 1;
-      }
-    }
-
-    @keyframes fadeDownAnim {
-      0% {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeUpAnim {
-      0% {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .word-reveal-1 {
-      animation: slideUpWord 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards;
-      transform: translateY(115%);
-    }
-    .word-reveal-2 {
-      animation: slideUpWord 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.54s forwards;
-      transform: translateY(115%);
-    }
-    .word-reveal-3 {
-      animation: slideUpWord 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.68s forwards;
-      transform: translateY(115%);
-    }
-
-    .animate-fadedown-1 {
-      animation: fadeDownAnim 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0s forwards;
-      opacity: 0;
-    }
-    .animate-fadedown-2 {
-      animation: fadeDownAnim 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
-      opacity: 0;
-    }
-    .animate-fadedown-3 {
-      animation: fadeDownAnim 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
-      opacity: 0;
-    }
-
-    .stat-fadeup-1 {
-      animation: fadeUpAnim 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.12s forwards;
-      opacity: 0;
-    }
-    .stat-fadeup-2 {
-      animation: fadeUpAnim 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.24s forwards;
-      opacity: 0;
-    }
-    .stat-fadeup-3 {
-      animation: fadeUpAnim 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.36s forwards;
-      opacity: 0;
-    }
-
-    .footer-fadeup-1 {
-      animation: fadeUpAnim 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.36s forwards;
-      opacity: 0;
-    }
-    .footer-fadeup-2 {
-      animation: fadeUpAnim 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.48s forwards;
-      opacity: 0;
-    }
-    .footer-fadeup-3 {
-      animation: fadeUpAnim 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards;
-      opacity: 0;
-    }
-
-    /* Custom underline hover animation for nav links */
-    .nav-link-hover {
-      position: relative;
-    }
-    .nav-link-hover::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: #F59E0B;
-      transition: width 0.2s ease-in-out;
-    }
-    .nav-link-hover:hover::after {
       width: 100%;
+      min-height: 100%;
+    }
+
+    ::selection {
+      background-color: #B59963;
+      color: #1E2A2A;
+    }
+
+    /* ========================================================================= */
+    /* 2. COMPONENTE BORDERGLOW (REACT BITS - ADAPTACIÓN CSS)                    */
+    /* ========================================================================= */
+    .border-glow-card {
+      --edge-proximity: 0;
+      --cursor-angle: 45deg;
+      --edge-sensitivity: 28;
+      --color-sensitivity: calc(var(--edge-sensitivity) + 20);
+      --border-radius: 28px;
+      --glow-padding: 44px;
+      --cone-spread: 24;
+      --fill-opacity: 0.5;
+      --card-bg: #1E2A2A;
+
+      position: relative;
+      border-radius: var(--border-radius);
+      isolation: isolate;
+      display: grid;
+      border: 1px solid rgba(181, 153, 99, 0.25);
+      background: var(--card-bg, #1E2A2A);
+      overflow: visible;
+      box-shadow:
+        rgba(0, 0, 0, 0.2) 0px 4px 12px,
+        rgba(0, 0, 0, 0.4) 0px 16px 32px;
+      transition: transform 0.25s ease;
+    }
+
+    .border-glow-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .border-glow-card::before,
+    .border-glow-card::after,
+    .border-glow-card > .edge-light {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      transition: opacity 0.25s ease-out;
+      z-index: -1;
+    }
+
+    .border-glow-card:not(:hover):not(.sweep-active)::before,
+    .border-glow-card:not(:hover):not(.sweep-active)::after,
+    .border-glow-card:not(:hover):not(.sweep-active) > .edge-light {
+      opacity: 0;
+      transition: opacity 0.75s ease-in-out;
+    }
+
+    /* Borde mesh-gradient interactivo con los colores de marca #B59963 */
+    .border-glow-card::before {
+      border: 1px solid transparent;
+      background:
+        linear-gradient(var(--card-bg, #1E2A2A) 0 100%) padding-box,
+        linear-gradient(rgba(255, 255, 255, 0) 0% 100%) border-box,
+        var(--gradient-one, radial-gradient(at 80% 55%, #B59963 0px, transparent 50%)) border-box,
+        var(--gradient-two, radial-gradient(at 69% 34%, #d4af37 0px, transparent 50%)) border-box,
+        var(--gradient-three, radial-gradient(at 8% 6%, #e6c887 0px, transparent 50%)) border-box,
+        var(--gradient-four, radial-gradient(at 41% 38%, #B59963 0px, transparent 50%)) border-box,
+        var(--gradient-five, radial-gradient(at 86% 85%, #d4af37 0px, transparent 50%)) border-box,
+        var(--gradient-six, radial-gradient(at 82% 18%, #e6c887 0px, transparent 50%)) border-box,
+        var(--gradient-seven, radial-gradient(at 51% 4%, #B59963 0px, transparent 50%)) border-box,
+        var(--gradient-base, linear-gradient(#B59963 0 100%)) border-box;
+
+      opacity: calc((var(--edge-proximity) - var(--color-sensitivity)) / (100 - var(--color-sensitivity)));
+
+      mask-image: conic-gradient(
+        from var(--cursor-angle) at center,
+        black calc(var(--cone-spread) * 1%),
+        transparent calc((var(--cone-spread) + 15) * 1%),
+        transparent calc((100 - var(--cone-spread) - 15) * 1%),
+        black calc((100 - var(--cone-spread)) * 1%)
+      );
+      -webkit-mask-image: conic-gradient(
+        from var(--cursor-angle) at center,
+        black calc(var(--cone-spread) * 1%),
+        transparent calc((var(--cone-spread) + 15) * 1%),
+        transparent calc((100 - var(--cone-spread) - 15) * 1%),
+        black calc((100 - var(--cone-spread)) * 1%)
+      );
+    }
+
+    /* Relleno de degradado interior */
+    .border-glow-card::after {
+      border: 1px solid transparent;
+      background:
+        var(--gradient-one, radial-gradient(at 80% 55%, #B59963 0px, transparent 50%)) padding-box,
+        var(--gradient-two, radial-gradient(at 69% 34%, #d4af37 0px, transparent 50%)) padding-box,
+        var(--gradient-three, radial-gradient(at 8% 6%, #e6c887 0px, transparent 50%)) padding-box,
+        var(--gradient-four, radial-gradient(at 41% 38%, #B59963 0px, transparent 50%)) padding-box,
+        var(--gradient-five, radial-gradient(at 86% 85%, #d4af37 0px, transparent 50%)) padding-box,
+        var(--gradient-six, radial-gradient(at 82% 18%, #e6c887 0px, transparent 50%)) padding-box,
+        var(--gradient-seven, radial-gradient(at 51% 4%, #B59963 0px, transparent 50%)) padding-box,
+        var(--gradient-base, linear-gradient(#B59963 0 100%)) padding-box;
+
+      opacity: calc(var(--fill-opacity, 0.4) * (var(--edge-proximity) - var(--color-sensitivity)) / (100 - var(--color-sensitivity)));
+      mix-blend-mode: soft-light;
+    }
+
+    /* Capa de resplandor exterior */
+    .border-glow-card > .edge-light {
+      inset: calc(var(--glow-padding) * -1);
+      pointer-events: none;
+      z-index: 1;
+      opacity: calc((var(--edge-proximity) - var(--edge-sensitivity)) / (100 - var(--edge-sensitivity)));
+      mix-blend-mode: plus-lighter;
+    }
+
+    .border-glow-card > .edge-light::before {
+      content: "";
+      position: absolute;
+      inset: var(--glow-padding);
+      border-radius: inherit;
+      box-shadow:
+        inset 0 0 0 1px hsl(40deg 70% 70% / 100%),
+        inset 0 0 6px 0 hsl(40deg 70% 70% / 50%),
+        inset 0 0 20px 1px hsl(40deg 70% 70% / 25%),
+        0 0 6px 0 hsl(40deg 70% 70% / 50%),
+        0 0 25px 2px hsl(40deg 70% 70% / 30%);
+    }
+
+    .border-glow-inner {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    /* ========================================================================= */
+    /* 3. COMPONENTE STEPPER (REACT BITS - ADAPTACIÓN CSS)                       */
+    /* ========================================================================= */
+    .stepper-container {
+      width: 100%;
+      max-width: 44rem;
+      margin: 0 auto;
+      background-color: #162222;
+      border: 1px solid rgba(181, 153, 99, 0.3);
+      border-radius: 1.5rem;
+      box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.5);
+      padding: 1.5rem 1.75rem 2rem 1.75rem;
+    }
+
+    .step-indicator-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+
+    .step-indicator {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.35rem;
+      height: 2.35rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.875rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .step-indicator.inactive {
+      background-color: #1E2A2A;
+      color: #718096;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .step-indicator.active {
+      background-color: #B59963;
+      color: #1E2A2A;
+      border: 1px solid #B59963;
+      box-shadow: 0 0 14px rgba(181, 153, 99, 0.5);
+    }
+
+    .step-indicator.complete {
+      background-color: #B59963;
+      color: #1E2A2A;
+      border: 1px solid #B59963;
+    }
+
+    .step-connector {
+      flex: 1;
+      height: 2px;
+      background-color: #2b3b3b;
+      margin: 0 0.5rem;
+      position: relative;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .step-connector-inner {
+      height: 100%;
+      width: 0%;
+      background-color: #B59963;
+      transition: width 0.4s ease;
+    }
+
+    .step-content {
+      display: none;
+      animation: fadeIn 0.35s ease forwards;
+    }
+
+    .step-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Animación reveladora de titulares (Hero Heading) */
+    .word-mask {
+      overflow: hidden;
+      display: block;
+      line-height: 0.88;
+    }
+
+    .word-reveal {
+      display: inline-block;
+      transform: translateY(0%);
+      animation: slideUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(115%); }
+      to { transform: translateY(0%); }
     }
   </style>
 </head>
-<body class="bg-[#0a0a0a] text-white selection:bg-[#F59E0B] selection:text-neutral-950">
+<body class="bg-[#1E2A2A] text-white">
 
-  <section class="relative min-h-screen w-full flex flex-col justify-between overflow-hidden uppercase tracking-widest font-semibold text-white select-none">
+  <!-- ========================================================================= -->
+  <!-- 1. SECCIÓN HERO (FONDO SÓLIDO #1E2A2A, SIN FIGURA EN MOVIMIENTO)           -->
+  <!-- ========================================================================= -->
+  <section class="relative min-h-screen w-full flex flex-col justify-between overflow-hidden bg-[#1E2A2A] uppercase tracking-widest font-semibold select-none">
     
-    <!-- 1. Background Video and Dark Vignette Overlays -->
-    <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none -z-10">
-      <video
-        autoplay
-        loop
-        muted
-        playsinline
-        class="absolute inset-0 w-full h-full object-cover"
-      >
-        <source
-          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260517_222138_3e3205be-3364-417b-a64a-bfe087acbec4.mp4"
-          type="video/mp4"
-        />
-      </video>
-      <div class="absolute inset-0 bg-neutral-950/55 backdrop-brightness-[0.85] bg-gradient-to-t from-neutral-950/85 via-neutral-950/30 to-neutral-950/70"></div>
+    <!-- Resplandor ambiental fijo sin movimiento -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden -z-10">
+      <div class="absolute -top-36 right-0 w-[500px] h-[500px] bg-[#B59963]/10 rounded-full blur-[130px]"></div>
+      <div class="absolute bottom-0 -left-20 w-[400px] h-[400px] bg-[#162222]/80 rounded-full blur-[90px]"></div>
     </div>
 
-    <!-- 2. Header & Navigation Bar -->
-    <header class="relative z-20 w-full flex items-center justify-between px-5 sm:px-8 md:px-12 pt-5 md:pt-6">
-      <div class="flex items-center animate-fadedown-1">
-        <a href="#" class="flex items-center group cursor-pointer focus:outline-none">
-          <div class="w-8 h-8 rounded-full border-2 border-[#F59E0B] flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shadow-[0_0_12px_rgba(245,158,11,0.3)]">
-            <div class="w-2.5 h-2.5 rounded-full bg-[#F59E0B]"></div>
-          </div>
-          <span class="text-sm font-semibold tracking-widest text-white ml-3 hidden sm:inline-block">
-            APIS MARKET LAB
-          </span>
-        </a>
-      </div>
+    <!-- HEADER: SOLO LOGO A LA IZQUIERDA Y BOTÓN DE MENÚ A LA DERECHA -->
+    <header class="relative z-30 w-full flex items-center justify-between px-5 sm:px-8 md:px-12 pt-6 md:pt-8">
+      <!-- Logo APIS MARKET LAB -->
+      <a href="#" class="flex items-center group cursor-pointer focus:outline-none" aria-label="APIS Market Lab">
+        <div class="w-9 h-9 rounded-full border-2 border-[#B59963] flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shadow-[0_0_15px_rgba(181,153,99,0.3)]">
+          <div class="w-2.5 h-2.5 rounded-full bg-[#B59963]"></div>
+        </div>
+        <span class="text-sm font-semibold tracking-widest text-white ml-3">
+          APIS MARKET LAB
+        </span>
+      </a>
 
-      <nav class="hidden md:flex items-center gap-8 animate-fadedown-2">
-        <a href="#servicios" class="text-xs font-semibold tracking-widest uppercase text-white/90 hover:text-white transition-colors py-1 nav-link-hover">
-          SERVICIOS
-        </a>
-        <a href="#metodologia" class="text-xs font-semibold tracking-widest uppercase text-white/90 hover:text-white transition-colors py-1 nav-link-hover">
-          METODOLOGÍA
-        </a>
-        <a href="#estudios" class="text-xs font-semibold tracking-widest uppercase text-white/90 hover:text-white transition-colors py-1 nav-link-hover">
-          ESTUDIOS
-        </a>
-        <a href="#contacto" class="text-xs font-semibold tracking-widest uppercase text-white/90 hover:text-white transition-colors py-1 nav-link-hover">
-          CONTACTO
-        </a>
-      </nav>
-
-      <div class="animate-fadedown-3 flex items-center gap-3">
-        <button
-          id="btn-open-menu"
-          type="button"
-          aria-label="Abrir menú"
-          class="w-9 h-9 rounded-full bg-neutral-900/60 hover:bg-neutral-800/80 backdrop-blur-md border border-white/15 flex flex-col items-center justify-center gap-1 transition-all duration-200 cursor-pointer hover:border-white/30"
-        >
-          <span class="w-4 h-0.5 bg-white rounded-full"></span>
-          <span class="w-4 h-0.5 bg-white rounded-full"></span>
-          <span class="w-4 h-0.5 bg-white rounded-full"></span>
-        </button>
-      </div>
+      <!-- Botón de apertura de Menú -->
+      <button
+        id="btn-open-menu"
+        type="button"
+        aria-label="Abrir menú de navegación"
+        class="px-4 py-2 rounded-full bg-[#162222] hover:bg-[#253535] border border-[#B59963]/30 flex items-center gap-3 transition-all duration-300 cursor-pointer shadow-lg hover:border-[#B59963]"
+      >
+        <span class="text-xs font-semibold tracking-widest text-[#B59963] hidden sm:inline">
+          MENÚ
+        </span>
+        <div class="flex flex-col gap-1 items-center justify-center">
+          <span class="w-4 h-0.5 bg-[#B59963] rounded-full"></span>
+          <span class="w-4 h-0.5 bg-[#B59963] rounded-full"></span>
+          <span class="w-4 h-0.5 bg-[#B59963] rounded-full"></span>
+        </div>
+      </button>
     </header>
 
+    <!-- MENÚ DESPLEGABLE OVERLAY A PANTALLA COMPLETA -->
     <div
-      id="mobile-menu"
-      class="fixed inset-0 z-50 bg-neutral-950/95 backdrop-blur-md flex flex-col p-6 sm:p-8 uppercase tracking-widest font-semibold text-white transition-all duration-300 opacity-0 pointer-events-none -translate-y-4"
+      id="menu-overlay"
+      class="fixed inset-0 z-50 bg-[#162222]/98 backdrop-blur-xl flex flex-col p-6 sm:p-12 uppercase tracking-widest font-semibold text-white transition-all duration-300 opacity-0 pointer-events-none -translate-y-4"
     >
-      <div class="flex items-center justify-between">
+      <div class="flex items-center justify-between border-b border-[#B59963]/20 pb-6">
         <div class="flex items-center">
-          <div class="w-8 h-8 rounded-full border-2 border-[#F59E0B] flex items-center justify-center shadow-[0_0_12px_rgba(245,158,11,0.3)]">
-            <div class="w-2.5 h-2.5 rounded-full bg-[#F59E0B]"></div>
+          <div class="w-9 h-9 rounded-full border-2 border-[#B59963] flex items-center justify-center shadow-[0_0_12px_rgba(181,153,99,0.3)]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#B59963]"></div>
           </div>
           <span class="text-sm font-semibold tracking-widest text-white ml-3">
             APIS MARKET LAB
@@ -210,127 +356,153 @@
           id="btn-close-menu"
           type="button"
           aria-label="Cerrar menú"
-          class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center text-white transition-colors cursor-pointer"
+          class="w-10 h-10 rounded-full bg-[#1E2A2A] hover:bg-[#253535] border border-[#B59963]/30 flex items-center justify-center text-[#B59963] transition-colors cursor-pointer"
         >
-          <i data-lucide="x" class="w-5 h-5"></i>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
         </button>
       </div>
 
-      <div class="flex flex-col space-y-8 mt-16 text-2xl sm:text-3xl font-semibold tracking-widest text-white">
-        <a href="#servicios" class="mobile-nav-link hover:text-[#F59E0B] transition-colors inline-block">SERVICIOS</a>
-        <a href="#metodologia" class="mobile-nav-link hover:text-[#F59E0B] transition-colors inline-block">METODOLOGÍA</a>
-        <a href="#estudios" class="mobile-nav-link hover:text-[#F59E0B] transition-colors inline-block">ESTUDIOS</a>
-        <a href="#contacto" class="mobile-nav-link hover:text-[#F59E0B] transition-colors inline-block">CONTACTO</a>
-      </div>
+      <!-- Opciones de Navegación -->
+      <nav class="flex flex-col space-y-6 sm:space-y-8 mt-12 text-xl sm:text-3xl font-semibold tracking-widest text-white">
+        <p class="text-xs text-[#B59963] tracking-widest mb-2">// NAVEGACIÓN PRINCIPAL</p>
+        <a href="#" class="menu-link hover:text-[#B59963] transition-colors inline-block w-fit text-white">INICIO</a>
+        <a href="#gancho" class="menu-link hover:text-[#B59963] transition-colors inline-block w-fit text-white">METODOLOGÍA APIS</a>
+        <a href="#servicios" class="menu-link hover:text-[#B59963] transition-colors inline-block w-fit text-white">SERVICIOS APIS LAB</a>
+        <a href="#cotizacion" class="menu-link hover:text-[#B59963] transition-colors inline-block w-fit text-white">COTIZADOR EN LÍNEA</a>
+        <a href="#cotizacion" class="menu-link hover:text-[#B59963] transition-colors inline-block w-fit text-white">CONTACTO DIRECTO</a>
+      </nav>
 
-      <div class="mt-auto pt-8 border-t border-white/10">
+      <!-- Pie del Menú -->
+      <div class="mt-auto pt-8 border-t border-[#B59963]/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <p class="text-xs text-[#B59963] tracking-widest mb-1">CORREO DIRECTO</p>
+          <p class="text-sm normal-case text-white font-normal">apismarketlab@gmail.com</p>
+        </div>
         <a
-          href="#contacto"
-          class="mobile-nav-link text-xl font-semibold text-[#F59E0B] flex items-center gap-2 hover:opacity-80 transition-opacity"
+          href="#cotizacion"
+          class="menu-link px-6 py-3 rounded-full bg-[#B59963] hover:bg-[#c9ab73] text-[#1E2A2A] font-bold text-sm tracking-wider flex items-center gap-2 transition-all shadow-lg"
         >
-          <span>INICIAR PROYECTO</span>
-          <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
+          <span>INICIAR COTIZACIÓN</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7V17" />
+          </svg>
         </a>
       </div>
     </div>
 
-    <div class="relative z-10 flex-1 flex items-center justify-end px-5 sm:px-8 md:px-12 py-8 md:py-0">
-      <div class="flex items-start gap-5 sm:gap-8 md:gap-10 text-right">
-        
-        <!-- Stat 1 -->
-        <div class="flex flex-col items-end stat-fadeup-1">
-          <div
-            style="font-size: clamp(1.5rem, 5vw, 3.5rem);"
-            class="font-semibold text-white leading-none tracking-tight flex items-baseline justify-end drop-shadow-md"
-          >
-            <span class="text-[#F59E0B] text-[0.5em] font-semibold mr-0.5 align-baseline">+</span>
+    <!-- ZONA CENTRAL DEL HERO: GANCHO PRINCIPAL + ESTADÍSTICAS (SIN +50 BENCHMARKING) -->
+    <div id="gancho" class="relative z-10 flex-1 flex flex-col lg:flex-row items-center justify-between px-5 sm:px-8 md:px-12 py-10 md:py-8 gap-8">
+      
+      <!-- GANCHO DESGLOSADO SOLICITADO -->
+      <div class="max-w-2xl text-left">
+        <!-- Badge metodológico -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#162222] border border-[#B59963]/40 text-[#B59963] text-[11px] font-semibold tracking-widest uppercase mb-5 shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-[#B59963] animate-pulse"></span>
+          <span>ESTRATEGIA & CONSUMER INTELLIGENCE</span>
+        </div>
+
+        <!-- Gancho principal -->
+        <h2 class="text-2xl sm:text-4xl md:text-5xl font-black uppercase text-white leading-tight tracking-wide mb-4 drop-shadow-md">
+          No compitas a ciegas: convierte datos de mercado en clientes recurrentes.
+        </h2>
+
+        <!-- Bajada de apoyo (Subtítulo en #B59963) -->
+        <p class="text-xs sm:text-sm md:text-base font-semibold uppercase tracking-wider text-[#B59963] leading-relaxed mb-8 max-w-xl">
+          Combinamos investigación del consumidor, psicología de compra y desarrollo digital para que cada clic en tu página tenga una intención real de negocio.
+        </p>
+
+        <!-- Llamado a la acción (CTA) -->
+        <a
+          href="#servicios"
+          class="inline-flex items-center gap-3 px-7 py-4 rounded-full bg-[#B59963] hover:bg-[#c9ab73] text-[#1E2A2A] font-bold text-xs sm:text-sm uppercase tracking-widest transition-all duration-300 shadow-xl hover:shadow-[0_0_25px_rgba(181,153,99,0.45)] group cursor-pointer"
+        >
+          <span>CONOCER METODOLOGÍA APIS</span>
+          <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-y-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- FILA DE ESTADÍSTICAS (SOLO +100% Y 360°, SIN +50 BENCHMARKING) -->
+      <div class="flex flex-row lg:flex-col items-end gap-8 sm:gap-10 text-right shrink-0">
+        <!-- Stat 1: +100% -->
+        <div class="flex flex-col items-end">
+          <div style="font-size: clamp(2.2rem, 5vw, 4rem);" class="font-bold text-white leading-none tracking-tight flex items-baseline justify-end drop-shadow-md">
+            <span class="text-[#B59963] text-[0.55em] font-semibold mr-1 align-baseline">+</span>
             <span>100%</span>
           </div>
-          <span class="text-[10px] sm:text-xs md:text-sm font-semibold tracking-widest uppercase text-neutral-300 whitespace-pre-line leading-tight mt-1.5 sm:mt-2">
-            DATA-DRIVEN<br>INSIGHTS
+          <span class="text-[10px] sm:text-xs font-semibold text-[#B59963] tracking-widest uppercase mt-2">
+            PRECISIÓN ANALÍTICA
+          </span>
+          <span class="text-[10px] sm:text-xs font-medium tracking-widest uppercase text-white whitespace-pre-line leading-tight mt-1">
+            DATA-DRIVEN INSIGHTS Y MODELADO
           </span>
         </div>
 
-        <!-- Stat 2 -->
-        <div class="flex flex-col items-end stat-fadeup-2">
-          <div
-            style="font-size: clamp(1.5rem, 5vw, 3.5rem);"
-            class="font-semibold text-white leading-none tracking-tight flex items-baseline justify-end drop-shadow-md"
-          >
-            <span class="text-[#F59E0B] text-[0.5em] font-semibold mr-0.5 align-baseline">+</span>
-            <span>50</span>
-          </div>
-          <span class="text-[10px] sm:text-xs md:text-sm font-semibold tracking-widest uppercase text-neutral-300 whitespace-pre-line leading-tight mt-1.5 sm:mt-2">
-            ESTUDIOS &<br>BENCHMARKS
-          </span>
-        </div>
-
-        <!-- Stat 3 -->
-        <div class="flex flex-col items-end stat-fadeup-3">
-          <div
-            style="font-size: clamp(1.5rem, 5vw, 3.5rem);"
-            class="font-semibold text-white leading-none tracking-tight flex items-baseline justify-end drop-shadow-md"
-          >
+        <!-- Stat 2: 360° -->
+        <div class="flex flex-col items-end">
+          <div style="font-size: clamp(2.2rem, 5vw, 4rem);" class="font-bold text-white leading-none tracking-tight flex items-baseline justify-end drop-shadow-md">
             <span>360</span>
-            <span class="text-[#F59E0B] text-[0.5em] font-semibold ml-0.5 align-baseline">°</span>
+            <span class="text-[#B59963] text-[0.55em] font-semibold ml-1 align-baseline">°</span>
           </div>
-          <span class="text-[10px] sm:text-xs md:text-sm font-semibold tracking-widest uppercase text-neutral-300 whitespace-pre-line leading-tight mt-1.5 sm:mt-2">
-            VISIÓN DE<br>MERCADO
+          <span class="text-[10px] sm:text-xs font-semibold text-[#B59963] tracking-widest uppercase mt-2">
+            VISIÓN INTEGRAL
+          </span>
+          <span class="text-[10px] sm:text-xs font-medium tracking-widest uppercase text-white whitespace-pre-line leading-tight mt-1">
+            ESTRATEGIA & COMPORTAMIENTO CONSUMIDOR
           </span>
         </div>
-
       </div>
+
     </div>
 
-    <footer class="relative z-10 px-5 sm:px-8 md:px-12 pb-8 md:pb-12 flex flex-col gap-6 md:gap-12">
-      <!-- Row A: Tagline + Action Button -->
-      <div class="flex flex-row items-center justify-between gap-4">
-        <p class="footer-fadeup-1 text-[10px] sm:text-xs md:text-sm font-semibold tracking-widest text-neutral-300 max-w-[160px] md:max-w-xs leading-relaxed">
+    <!-- SECCIÓN INFERIOR DEL HERO -->
+    <footer class="relative z-10 px-5 sm:px-8 md:px-12 pb-10 md:pb-14 flex flex-col gap-8 md:gap-12">
+      <!-- Fila A: Subtítulo/Tagline en #B59963 y CTA -->
+      <div class="flex flex-row items-center justify-between gap-4 border-t border-[#B59963]/20 pt-6">
+        <p class="text-[10px] sm:text-xs md:text-sm font-semibold tracking-widest text-[#B59963] max-w-[200px] md:max-w-md leading-relaxed">
           INTELIGENCIA COMERCIAL /<br />
           ESTRATEGIA ACCIONABLE /<br />
           CRECIMIENTO REAL
         </p>
 
         <a
-          href="#contacto"
-          class="footer-fadeup-2 text-base sm:text-xl md:text-2xl text-[#F59E0B] font-semibold whitespace-nowrap flex items-center gap-2 hover:opacity-80 transition-opacity group cursor-pointer"
+          href="#cotizacion"
+          class="text-base sm:text-xl md:text-2xl text-[#B59963] font-semibold whitespace-nowrap flex items-center gap-2 hover:text-[#d4af37] transition-all group cursor-pointer"
         >
           <span>AGENDAR CONSULTORÍA</span>
-          <i data-lucide="arrow-up-right" class="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+          <svg class="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7V17" />
+          </svg>
         </a>
       </div>
 
-      <!-- Row B: Sub-description + Giant Words with Overflow Hidden Slide Up -->
-      <div class="flex flex-row items-end justify-between gap-3 sm:gap-4">
-        <div class="footer-fadeup-3 w-[140px] sm:w-[200px] md:w-[300px] shrink-0 mb-1 sm:mb-2">
-          <p class="text-[9px] sm:text-xs md:text-sm font-semibold tracking-widest uppercase text-neutral-400 text-left md:text-right leading-snug">
+      <!-- Fila B: Descripción en blanco y Gran Titular apilado -->
+      <div class="flex flex-row items-end justify-between gap-4">
+        <div class="w-[160px] sm:w-[240px] md:w-[340px] shrink-0 mb-1">
+          <!-- Descripción en blanco -->
+          <p class="text-[10px] sm:text-xs md:text-sm font-normal tracking-wider uppercase text-white text-left md:text-right leading-relaxed">
             CONSULTORÍA ESPECIALIZADA EN INVESTIGACIÓN DE MERCADOS, ANALÍTICA DE
             NEGOCIOS Y COMPORTAMIENTO DEL CONSUMIDOR.
           </p>
         </div>
 
+        <!-- Titular gigante apilado -->
         <div class="flex flex-col items-end select-none">
-          <div class="overflow-hidden leading-[0.88] block py-0.5">
-            <h1
-              style="font-size: clamp(2.2rem, 9.5vw, 9.5rem); lineHeight: 0.88;"
-              class="word-reveal-1 font-semibold uppercase text-white text-right m-0 tracking-tight sm:tracking-normal drop-shadow-lg"
-            >
+          <div class="word-mask py-0.5">
+            <h1 style="font-size: clamp(2.4rem, 9.8vw, 9.5rem);" class="word-reveal font-bold uppercase text-white text-right m-0 tracking-tight sm:tracking-normal drop-shadow-md">
               CIENCIA
             </h1>
           </div>
-          <div class="overflow-hidden leading-[0.88] block py-0.5">
-            <h1
-              style="font-size: clamp(2.2rem, 9.5vw, 9.5rem); lineHeight: 0.88;"
-              class="word-reveal-2 font-semibold uppercase text-white text-right m-0 tracking-tight sm:tracking-normal drop-shadow-lg"
-            >
+          <div class="word-mask py-0.5">
+            <h1 style="font-size: clamp(2.4rem, 9.8vw, 9.5rem);" class="word-reveal font-bold uppercase text-white text-right m-0 tracking-tight sm:tracking-normal drop-shadow-md" style="animation-delay: 0.14s;">
               MERCADO
             </h1>
           </div>
-          <div class="overflow-hidden leading-[0.88] block py-0.5">
-            <h1
-              style="font-size: clamp(2.2rem, 9.5vw, 9.5rem); lineHeight: 0.88;"
-              class="word-reveal-3 font-semibold uppercase text-white text-right m-0 tracking-tight sm:tracking-normal drop-shadow-lg"
-            >
+          <div class="word-mask py-0.5">
+            <h1 style="font-size: clamp(2.4rem, 9.8vw, 9.5rem);" class="word-reveal font-bold uppercase text-white text-right m-0 tracking-tight sm:tracking-normal drop-shadow-md" style="animation-delay: 0.28s;">
               PODER
             </h1>
           </div>
@@ -339,445 +511,818 @@
     </footer>
   </section>
 
-  <section id="servicios" class="relative py-28 px-5 sm:px-8 md:px-12 border-t border-neutral-900 bg-neutral-950">
-    <div class="max-w-7xl mx-auto">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-        <div>
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-[#F59E0B] text-xs font-bold tracking-widest uppercase mb-4">
-            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-            <span>CAPACIDADES ESTRATÉGICAS</span>
-          </div>
-          <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight">
-            SOLUCIONES <span class="text-[#F59E0B]">A MEDIDA</span>
-          </h2>
-        </div>
-        <p class="text-neutral-400 text-xs sm:text-sm max-w-md uppercase tracking-wider leading-relaxed">
-          Diseñamos sistemas de inteligencia que convierten la incertidumbre de mercado en ventajas competitivas medibles y rentables.
-        </p>
-      </div>
+  <!-- ========================================================================= -->
+  <!-- 2. SERVICIOS APIS LAB (5 TARJETAS NUEVAS CON BORDERGLOW)                  -->
+  <!-- ========================================================================= -->
+  <section id="servicios" class="relative w-full py-24 px-5 sm:px-8 md:px-12 bg-[#1E2A2A] border-t border-[#B59963]/20">
+    <div class="max-w-4xl mx-auto text-center mb-16">
+      <p class="text-xs sm:text-sm font-semibold tracking-widest text-[#B59963] uppercase mb-3">
+        // METODOLOGÍA & SERVICIOS ESPECIALIZADOS
+      </p>
+      <h2 class="text-3xl sm:text-5xl font-bold uppercase tracking-wider text-white mb-6">
+        SERVICIOS ESTRATÉGICOS APIS LAB
+      </h2>
+      <p class="text-sm sm:text-base text-white font-normal leading-relaxed max-w-2xl mx-auto">
+        Integramos analítica, psicología de compra y ejecución digital para construir soluciones comerciales robustas que generen tracción inmediata en tu mercado.
+      </p>
+    </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Service 1 -->
-        <div class="group p-8 rounded-2xl bg-neutral-900/40 border border-neutral-800/80 hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between">
+    <!-- Grid con 5 Cards BorderGlow -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      
+      <!-- TARJETA 01 // APIS LAB -->
+      <div class="border-glow-card" data-glow-color="40 70 70">
+        <span class="edge-light"></span>
+        <div class="border-glow-inner p-8 sm:p-9 flex flex-col h-full justify-between">
           <div>
             <div class="flex items-center justify-between mb-6">
-              <div class="w-12 h-12 rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center text-[#F59E0B]">
-                <i data-lucide="search" class="w-6 h-6"></i>
+              <div class="w-12 h-12 rounded-xl bg-[#162222] border border-[#B59963]/40 flex items-center justify-center text-[#B59963]">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
               </div>
-              <span class="text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-md bg-white/5 border border-white/10 text-neutral-400">
-                FUNDACIONAL
-              </span>
+              <span class="text-xs font-semibold text-[#B59963] tracking-widest">01 // APIS LAB</span>
             </div>
-            <h3 class="text-xl font-bold tracking-wider mb-2 group-hover:text-amber-400 transition-colors">
-              INVESTIGACIÓN DE MERCADOS
-            </h3>
-            <p class="text-neutral-400 text-xs sm:text-sm tracking-wide leading-relaxed mb-6 font-normal">
-              Rigor cuantitativo y cualitativo para validar proyectos, dimensionamiento de demanda (TAM/SAM/SOM) y análisis de elasticidad de precios.
-            </p>
-            <ul class="space-y-2 text-xs text-neutral-300 tracking-wider">
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#F59E0B]"></i> Muestreo representativo probabilístico</li>
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#F59E0B]"></i> Paneles de evaluación y Focus Groups</li>
-            </ul>
-          </div>
-          <div class="mt-8 pt-4 border-t border-neutral-800/60">
-            <a href="#contacto" class="text-xs font-bold text-[#F59E0B] flex items-center gap-1.5 hover:underline">
-              <span>SOLICITAR ALCANCE</span>
-              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-            </a>
-          </div>
-        </div>
 
-        <!-- Service 2 -->
-        <div class="group p-8 rounded-2xl bg-neutral-900/40 border border-neutral-800/80 hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-6">
-              <div class="w-12 h-12 rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center text-[#F59E0B]">
-                <i data-lucide="database" class="w-6 h-6"></i>
-              </div>
-              <span class="text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-md bg-white/5 border border-white/10 text-neutral-400">
-                TECNOLOGÍA
-              </span>
-            </div>
-            <h3 class="text-xl font-bold tracking-wider mb-2 group-hover:text-amber-400 transition-colors">
-              BUSINESS INTELLIGENCE & BI
-            </h3>
-            <p class="text-neutral-400 text-xs sm:text-sm tracking-wide leading-relaxed mb-6 font-normal">
-              Ecosistemas analíticos automatizados en Power BI y Looker Studio. Conectamos bases transaccionales, CRM y ERP en tableros ejecutivos.
+            <!-- Subtítulo en #B59963 -->
+            <p class="text-xs font-semibold uppercase tracking-widest text-[#B59963] mb-2">
+              INTELIGENCIA DE NEGOCIO & DATOS
             </p>
-            <ul class="space-y-2 text-xs text-neutral-300 tracking-wider">
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#F59E0B]"></i> Pipelines automatizados sin errores manuales</li>
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#F59E0B]"></i> Alertas predictivas de margen y rotación</li>
-            </ul>
+            <!-- Título en blanco -->
+            <h3 class="text-xl sm:text-2xl font-bold uppercase tracking-wider text-white mb-4">
+              ASESORÍA EN BUSINESS INTELLIGENCE
+            </h3>
+            <!-- Descripción en blanco -->
+            <p class="text-sm text-white font-normal leading-relaxed mb-6">
+              Traducimos los números y movimientos de tu empresa en decisiones fáciles de entender. Analizamos qué vendes, a quién le vendes y dónde estás perdiendo dinero para crear tableros visuales que te permitan saber exactamente qué hacer para crecer, sin enredos técnicos.
+            </p>
           </div>
-          <div class="mt-8 pt-4 border-t border-neutral-800/60">
-            <a href="#contacto" class="text-xs font-bold text-[#F59E0B] flex items-center gap-1.5 hover:underline">
-              <span>SOLICITAR ALCANCE</span>
-              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-            </a>
-          </div>
-        </div>
 
-        <!-- Service 3 -->
-        <div class="group p-8 rounded-2xl bg-neutral-900/40 border border-neutral-800/80 hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-6">
-              <div class="w-12 h-12 rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center text-[#F59E0B]">
-                <i data-lucide="target" class="w-6 h-6"></i>
-              </div>
-              <span class="text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-md bg-white/5 border border-white/10 text-neutral-400">
-                AUDITORÍA
-              </span>
-            </div>
-            <h3 class="text-xl font-bold tracking-wider mb-2 group-hover:text-amber-400 transition-colors">
-              COMPORTAMIENTO DEL CONSUMIDOR
-            </h3>
-            <p class="text-neutral-400 text-xs sm:text-sm tracking-wide leading-relaxed mb-6 font-normal">
-              Auditorías presenciales y digitales de experiencia de compra. Análisis de churn rate, fidelización y psicología de decisiones en checkout.
-            </p>
-            <ul class="space-y-2 text-xs text-neutral-300 tracking-wider">
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#F59E0B]"></i> Customer Journey Mapping de extremo a extremo</li>
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#F59E0B]"></i> Pruebas de usabilidad e impacto en góndola/canal</li>
+          <!-- Puntos clave -->
+          <div class="border-t border-[#B59963]/20 pt-6">
+            <ul class="space-y-2.5 text-xs text-white">
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-[#B59963] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>Diagnóstico claro de ventas y costos</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-[#B59963] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>Tableros visuales fáciles de consultar</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-[#B59963] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>Decisiones basadas en números reales</span>
+              </li>
             </ul>
-          </div>
-          <div class="mt-8 pt-4 border-t border-neutral-800/60">
-            <a href="#contacto" class="text-xs font-bold text-[#F59E0B] flex items-center gap-1.5 hover:underline">
-              <span>SOLICITAR ALCANCE</span>
-              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- Service 4 -->
-        <div class="group p-8 rounded-2xl bg-neutral-900/40 border border-neutral-800/80 hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-6">
-              <div class="w-12 h-12 rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center text-[#F59E0B]">
-                <i data-lucide="bar-chart-3" class="w-6 h-6"></i>
-              </div>
-              <span class="text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-md bg-white/5 border border-white/10 text-neutral-400">
-                ACELERACIÓN
-              </span>
-            </div>
-            <h3 class="text-xl font-bold tracking-wider mb-2 group-hover:text-amber-400 transition-colors">
-              ESTRATEGIA & DIAGNÓSTICO COMERCIAL
-            </h3>
-            <p class="text-neutral-400 text-xs sm:text-sm tracking-wide leading-relaxed mb-6 font-normal">
-              Alineación de cuotas de ventas, optimización de embudos comerciales B2B/B2C y matrices de competencia basadas en evidencia real.
-            </p>
-            <ul class="space-y-2 text-xs text-neutral-300 tracking-wider">
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#F59E0B]"></i> Modelos de previsión de ingresos (Forecasting)</li>
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#F59E0B]"></i> Rediseño de incentivos y estructura de ventas</li>
-            </ul>
-          </div>
-          <div class="mt-8 pt-4 border-t border-neutral-800/60">
-            <a href="#contacto" class="text-xs font-bold text-[#F59E0B] flex items-center gap-1.5 hover:underline">
-              <span>SOLICITAR ALCANCE</span>
-              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-            </a>
           </div>
         </div>
       </div>
+
+      <!-- TARJETA 02 // APIS LAB -->
+      <div class="border-glow-card" data-glow-color="40 70 70">
+        <span class="edge-light"></span>
+        <div class="border-glow-inner p-8 sm:p-9 flex flex-col h-full justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-xl bg-[#162222] border border-[#B59963]/40 flex items-center justify-center text-[#B59963]">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                </svg>
+              </div>
+              <span class="text-xs font-semibold text-[#B59963] tracking-widest">02 // APIS LAB</span>
+            </div>
+
+            <!-- Subtítulo en #B59963 -->
+            <p class="text-xs font-semibold uppercase tracking-widest text-[#B59963] mb-2">
+              CANALES DIGITALES Y ATRACCIÓN
+            </p>
+            <!-- Título en blanco -->
+            <h3 class="text-xl sm:text-2xl font-bold uppercase tracking-wider text-white mb-4">
+              SITIOS WEB Y PUBLICIDAD DIRIGIDA
+            </h3>
+            <!-- Descripción en blanco -->
+            <p class="text-sm text-white font-normal leading-relaxed mb-6">
+              Desarrollamos páginas web diseñadas para vender y creamos campañas de anuncios en redes sociales y buscadores que llevan a clientes potenciales directo a tu negocio, asegurando que cada peso invertido en publicidad tenga una intención clara de compra.
+            </p>
+          </div>
+
+          <!-- Puntos clave -->
+          <div class="border-t border-[#B59963]/20 pt-6">
+            <ul class="space-y-2.5 text-xs text-white">
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-[#B59963] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>Sitios web rápidos y adaptados a celular</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-[#B59963] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>Anuncios en Google, Meta y TikTok hacia tu página</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-[#B59963] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>Enlaces directos a WhatsApp y cotizaciones</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- TARJETA 03 // APIS LAB -->
+      <div class="border-glow-card" data-glow-color="40 70 70">
+        <span class="edge-light"></span>
+        <div class="border-glow-inner p-8 sm:p-9 flex flex-col h-full justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-xl bg-[#162222] border border-[#B59963]/40 flex items-center justify-center text-[#B59963]">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+              </div>
+              <span class="text-xs font-semibold text-[#B59963] tracking-widest">03 // APIS LAB</span>
+            </div>
+
+            <!-- Subtítulo en #B59963 -->
+            <p class="text-xs font-semibold uppercase tracking-widest text-[#B59963] mb-2">
+              COMPRENSIÓN DEL CONSUMIDOR
+            </p>
+            <!-- Título en blanco -->
+            <h3 class="text-xl sm:text-2xl font-bold uppercase tracking-wider text-white mb-4">
+              ESTUDIOS DE MERCADO REALES
+            </h3>
+            <!-- Descripción en blanco -->
+            <p class="text-sm text-white font-normal leading-relaxed mb-6">
+              Investigamos a fondo a tu competencia y los hábitos de compra de tus clientes antes de que arriesgues tu capital. Analizamos qué precios tolera el mercado, qué le duele a tu cliente y qué espacios están desatendidos para posicionar tu producto con certeza.
+            </p>
+          </div>
+
+          <!-- Puntos clave -->
+          <div class="border-t border-[#B59963]/20 pt-6">
+            <ul class="space-y-2.5 text-xs text-white">
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-[#B59963] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>Análisis de precios y competidores</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-[#B59963] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>Detección de nichos no atendidos</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-[#B59963] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>Validación de nuevos productos y servicios</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- TARJETA 04 // APIS LAB -->
+      <div class="border-glow-card" data-glow-color="40 70 70">
+        <span class="edge-light"></span>
+        <div class="border-glow-inner p-8 sm:p-9 flex flex-col h-full justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-xl bg-[#162222] border border-[#B59963]/40 flex items-center justify-center text-[#B59963]">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+              </div>
+              <span class="text-xs font-semibold text-[#B59963] tracking-widest">04 // APIS LAB</span>
+            </div>
+
+            <!-- Subtítulo en #B59963 -->
+            <p class="text-xs font-semibold uppercase tracking-widest text-[#B59963] mb-2">
+              ESTRATEGIA COMERCIAL INTEGRAL
+            </p>
+            <!-- Título en blanco -->
+            <h3 class="text-xl sm:text-2xl font-bold uppercase tracking-wider text-white mb-4">
+              ASESORÍA Y MARKETING TRADICIONAL
+            </h3>
+            <!-- Descripción en blanco -->
+            <p class="text-sm text-white font-normal leading-relaxed mb-6">
+              El comercio físico sigue cerrando tratos. Estructuramos tus canales de distribución, atención en punto de venta, material comercial impreso y técnicas de negociación cara a cara para que tu marca se proyecte sólida tanto en digital como en el trato diario.
+            </p>
+          </div>
+
+          <!-- Puntos clave -->
+          <div class="border-t border-[#B59963]/20 pt-6">
+            <ul class="space-y-2.5 text-xs text-white">
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-[#B59963] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>Estrategia de ventas y canales de distribución</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-[#B59963] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>Material comercial y presencia de marca</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-[#B59963] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>Procesos de atención y cierre con clientes</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- TARJETA 05 // APIS LAB (COMPLEMENTO METODOLÓGICO) -->
+      <div class="border-glow-card md:col-span-2 lg:col-span-2" data-glow-color="40 70 70">
+        <span class="edge-light"></span>
+        <div class="border-glow-inner p-8 sm:p-9 flex flex-col h-full justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-xl bg-[#162222] border border-[#B59963]/40 flex items-center justify-center text-[#B59963]">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <span class="text-xs font-semibold text-[#B59963] tracking-widest">05 // APIS LAB</span>
+            </div>
+
+            <!-- Subtítulo en #B59963 -->
+            <p class="text-xs font-semibold uppercase tracking-widest text-[#B59963] mb-2">
+              DIAGNÓSTICO METODOLÓGICO
+            </p>
+            <!-- Título en blanco -->
+            <h3 class="text-xl sm:text-2xl font-bold uppercase tracking-wider text-white mb-4">
+              DETECCIÓN DE ÁREAS DE MEJORA
+            </h3>
+            <!-- Descripción en blanco -->
+            <p class="text-sm text-white font-normal leading-relaxed mb-6">
+              Evaluamos a fondo las áreas críticas de tu empresa para encontrar dónde se traba la operación. Detectamos fallas en la comunicación interna, incoherencias en la imagen de tu marca (branding) y fricciones en el proceso comercial para entregarte un plan de acción ordenado.
+            </p>
+          </div>
+
+          <!-- Puntos clave -->
+          <div class="border-t border-[#B59963]/20 pt-6">
+            <ul class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-white">
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-[#B59963] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>Auditoría de procesos internos y ventas</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-[#B59963] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>Detección de fugas operativas y de marca</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-[#B59963] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>Plan de soluciones paso a paso con metodología</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <section id="metodologia" class="relative py-28 px-5 sm:px-8 md:px-12 border-t border-neutral-900 bg-[#0a0a0a]">
-    <div class="max-w-7xl mx-auto">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-        <div>
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-[#F59E0B] text-xs font-bold tracking-widest uppercase mb-4">
-            <i data-lucide="layers" class="w-3.5 h-3.5"></i>
-            <span>EL PROCESO</span>
-          </div>
-          <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight">
-            METODOLOGÍA <span class="text-[#F59E0B]">ACCIONABLE</span>
-          </h2>
-        </div>
-        <p class="text-neutral-400 text-xs sm:text-sm max-w-md uppercase tracking-wider leading-relaxed">
-          Cada fase está diseñada para eliminar sesgos y entregar métricas ejecutables en plazos definidos.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="p-8 rounded-2xl bg-neutral-900/30 border border-neutral-800 flex flex-col justify-between">
-          <div>
-            <span class="text-4xl font-black text-[#F59E0B]/40 block mb-4">01</span>
-            <h3 class="text-base font-bold uppercase tracking-wider mb-2">EXTRACCIÓN & LEVANTAMIENTO</h3>
-            <p class="text-neutral-400 text-xs tracking-wider leading-relaxed">
-              Consolidación de bases primarias, censales o encuestas estructuradas sin pérdida de integridad.
-            </p>
-          </div>
-          <div class="mt-8 text-[10px] uppercase font-bold text-amber-500">FASE INICIAL</div>
-        </div>
-
-        <div class="p-8 rounded-2xl bg-neutral-900/30 border border-neutral-800 flex flex-col justify-between">
-          <div>
-            <span class="text-4xl font-black text-[#F59E0B]/40 block mb-4">02</span>
-            <h3 class="text-base font-bold uppercase tracking-wider mb-2">MODELADO & ANALÍTICA</h3>
-            <p class="text-neutral-400 text-xs tracking-wider leading-relaxed">
-              Aplicación de métodos estadísticos para aislar patrones de compra, correlaciones y dispersión.
-            </p>
-          </div>
-          <div class="mt-8 text-[10px] uppercase font-bold text-amber-500">PROCESAMIENTO</div>
-        </div>
-
-        <div class="p-8 rounded-2xl bg-neutral-900/30 border border-neutral-800 flex flex-col justify-between">
-          <div>
-            <span class="text-4xl font-black text-[#F59E0B]/40 block mb-4">03</span>
-            <h3 class="text-base font-bold uppercase tracking-wider mb-2">DASHBOARDING DINÁMICO</h3>
-            <p class="text-neutral-400 text-xs tracking-wider leading-relaxed">
-              Visualizaciones interactivas intuitivas diseñadas para directores que demandan claridad en segundos.
-            </p>
-          </div>
-          <div class="mt-8 text-[10px] uppercase font-bold text-amber-500">ACCESIBILIDAD</div>
-        </div>
-
-        <div class="p-8 rounded-2xl bg-neutral-900/30 border border-neutral-800 flex flex-col justify-between">
-          <div>
-            <span class="text-4xl font-black text-[#F59E0B]/40 block mb-4">04</span>
-            <h3 class="text-base font-bold uppercase tracking-wider mb-2">PLAN DE ACCIÓN COMERCIAL</h3>
-            <p class="text-neutral-400 text-xs tracking-wider leading-relaxed">
-              Entregables priorizados por retorno de inversión (ROI) con acompañamiento de adopción en equipo.
-            </p>
-          </div>
-          <div class="mt-8 text-[10px] uppercase font-bold text-amber-500">EJECUCIÓN</div>
-        </div>
-      </div>
+  <!-- ========================================================================= -->
+  <!-- 3. FORMULARIO DE COTIZACIÓN CON STEPPER Y FILTRO ANTI-SPAM (A GMAIL)       -->
+  <!-- ========================================================================= -->
+  <section id="cotizacion" class="relative w-full py-24 px-5 sm:px-8 md:px-12 bg-[#1E2A2A] border-t border-[#B59963]/20">
+    <div class="max-w-3xl mx-auto text-center mb-12">
+      <p class="text-xs sm:text-sm font-semibold tracking-widest text-[#B59963] uppercase mb-3">
+        // COTIZACIÓN INMEDIATA & CONTACTO SEGURO
+      </p>
+      <h2 class="text-3xl sm:text-4xl font-bold uppercase tracking-wider text-white mb-4">
+        SOLICITA TU PROPUESTA PERSONALIZADA
+      </h2>
+      <p class="text-sm sm:text-base text-white font-normal leading-relaxed">
+        Completa los siguientes pasos para cotizar tu proyecto. Tu información será validada contra spam y enviada directamente a 
+        <span class="text-[#B59963] font-semibold underline underline-offset-4">apismarketlab@gmail.com</span>.
+      </p>
     </div>
-  </section>
 
-  <section id="estudios" class="relative py-28 px-5 sm:px-8 md:px-12 border-t border-neutral-900 bg-neutral-950">
-    <div class="max-w-7xl mx-auto">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-        <div>
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-[#F59E0B] text-xs font-bold tracking-widest uppercase mb-4">
-            <i data-lucide="trending-up" class="w-3.5 h-3.5"></i>
-            <span>EVIDENCIA Y MÉTRICAS</span>
-          </div>
-          <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight">
-            ESTUDIOS & <span class="text-[#F59E0B]">RESULTADOS</span>
-          </h2>
-        </div>
-        <p class="text-neutral-400 text-xs sm:text-sm max-w-md uppercase tracking-wider leading-relaxed">
-          Proyectos reales donde la ciencia aplicada transformó la rentabilidad de las organizaciones.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="p-8 rounded-2xl bg-neutral-900/40 border border-neutral-800 flex flex-col justify-between">
-          <div>
-            <span class="text-xs font-bold text-[#F59E0B] uppercase tracking-widest block mb-2">MANUFACTURA B2B</span>
-            <h3 class="text-lg font-bold uppercase mb-4">OPTIMIZACIÓN DE PACKAGING & PRECIOS</h3>
-            <div class="text-2xl font-black text-white mb-3">+28% Margen Bruto</div>
-            <p class="text-xs text-neutral-400 leading-relaxed tracking-wide mb-6">
-              Estudio de sensibilidad de precio conjunto y auditoría de canal que redujo rotación de clientes mayoristas.
-            </p>
-          </div>
-          <div class="flex gap-2 flex-wrap">
-            <span class="text-[9px] uppercase px-2.5 py-1 rounded bg-neutral-800 text-neutral-300">Elasticidad</span>
-            <span class="text-[9px] uppercase px-2.5 py-1 rounded bg-neutral-800 text-neutral-300">Conjoint Test</span>
-          </div>
-        </div>
-
-        <div class="p-8 rounded-2xl bg-neutral-900/40 border border-neutral-800 flex flex-col justify-between">
-          <div>
-            <span class="text-xs font-bold text-[#F59E0B] uppercase tracking-widest block mb-2">RETAIL MULTICANAL</span>
-            <h3 class="text-lg font-bold uppercase mb-4">CANIBALIZACIÓN & GEO-DEMANDA</h3>
-            <div class="text-2xl font-black text-white mb-3">94% Precisión Stock</div>
-            <p class="text-xs text-neutral-400 leading-relaxed tracking-wide mb-6">
-              Modelado de radios de cobertura territorial para 18 sucursales, erradicando competencia entre puntos propios.
-            </p>
-          </div>
-          <div class="flex gap-2 flex-wrap">
-            <span class="text-[9px] uppercase px-2.5 py-1 rounded bg-neutral-800 text-neutral-300">Geomarketing</span>
-            <span class="text-[9px] uppercase px-2.5 py-1 rounded bg-neutral-800 text-neutral-300">Power BI</span>
-          </div>
-        </div>
-
-        <div class="p-8 rounded-2xl bg-neutral-900/40 border border-neutral-800 flex flex-col justify-between">
-          <div>
-            <span class="text-xs font-bold text-[#F59E0B] uppercase tracking-widest block mb-2">SERVICIOS & SAAS</span>
-            <h3 class="text-lg font-bold uppercase mb-4">BENCHMARK DE VALOR PERCIBIDO</h3>
-            <div class="text-2xl font-black text-white mb-3">3.2x Tasa Calificados</div>
-            <p class="text-xs text-neutral-400 leading-relaxed tracking-wide mb-6">
-              Investigación a ciegas sobre oferta diferencial frente a competidores directos, rediseñando el pitch comercial.
-            </p>
-          </div>
-          <div class="flex gap-2 flex-wrap">
-            <span class="text-[9px] uppercase px-2.5 py-1 rounded bg-neutral-800 text-neutral-300">Mystery B2B</span>
-            <span class="text-[9px] uppercase px-2.5 py-1 rounded bg-neutral-800 text-neutral-300">Posicionamiento</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contacto" class="relative py-28 px-5 sm:px-8 md:px-12 border-t border-neutral-900 bg-[#0a0a0a]">
-    <div class="max-w-7xl mx-auto">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+    <!-- Stepper Component -->
+    <div class="stepper-container">
+      
+      <!-- Fila de Indicadores y Conectores -->
+      <div class="step-indicator-row">
+        <!-- Indicador 1 -->
+        <div class="step-indicator active" data-step="1">1</div>
+        <div class="step-connector"><div class="step-connector-inner" id="connector-1"></div></div>
         
-        <div class="lg:col-span-5 flex flex-col justify-between">
-          <div>
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-[#F59E0B] text-xs font-bold tracking-widest uppercase mb-4">
-              <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
-              <span>CONFIDENCIALIDAD TOTAL</span>
-            </div>
-            <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight mb-6">
-              INICIAR <span class="text-[#F59E0B]">DIAGNÓSTICO</span>
-            </h2>
-            <p class="text-neutral-400 text-xs sm:text-sm tracking-wide leading-relaxed mb-8">
-              Cuéntanos sobre tu mercado, tu reto actual de ventas o los datos que buscas estructurar. Agendamos una sesión de diagnóstico sin costo.
-            </p>
+        <!-- Indicador 2 -->
+        <div class="step-indicator inactive" data-step="2">2</div>
+        <div class="step-connector"><div class="step-connector-inner" id="connector-2"></div></div>
 
-            <div class="space-y-4 text-xs tracking-wider">
-              <div class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center text-[#F59E0B]">
-                  <i data-lucide="mail" class="w-4 h-4"></i>
-                </div>
-                <div>
-                  <div class="text-[9px] text-neutral-500 font-bold uppercase">CORREO DIRECTO</div>
-                  <a href="mailto:contacto@apismarketlab.com" class="hover:text-amber-400 font-semibold">contacto@apismarketlab.com</a>
-                </div>
-              </div>
+        <!-- Indicador 3 -->
+        <div class="step-indicator inactive" data-step="3">3</div>
+        <div class="step-connector"><div class="step-connector-inner" id="connector-3"></div></div>
 
-              <div class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center text-[#F59E0B]">
-                  <i data-lucide="phone" class="w-4 h-4"></i>
-                </div>
-                <div>
-                  <div class="text-[9px] text-neutral-500 font-bold uppercase">WHATSAPP / CONSULTA RÁPIDA</div>
-                  <a href="https://wa.me/5215500000000" target="_blank" class="hover:text-amber-400 font-semibold">+52 (55) 0000-0000</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-12 pt-6 border-t border-neutral-900 text-[10px] text-neutral-500 tracking-widest">
-            APIS MARKET LAB • DATA-DRIVEN MARKET INTELLIGENCE
-          </div>
-        </div>
-
-        <!-- Form Column -->
-        <div class="lg:col-span-7">
-          <div class="p-8 sm:p-10 rounded-2xl bg-neutral-900/60 border border-neutral-800">
-            <div id="form-success" class="hidden text-center py-12">
-              <div class="w-14 h-14 rounded-full bg-amber-500/20 border border-[#F59E0B] text-[#F59E0B] flex items-center justify-center mx-auto mb-4">
-                <i data-lucide="check-circle-2" class="w-8 h-8"></i>
-              </div>
-              <h3 class="text-xl font-bold uppercase tracking-wider mb-2">SOLICITUD ENVIADA</h3>
-              <p class="text-neutral-400 text-xs tracking-wider max-w-sm mx-auto mb-6">
-                Un consultor principal se pondrá en contacto contigo en menos de 24 horas para coordinar la sesión.
-              </p>
-              <button
-                id="btn-reset-form"
-                class="px-6 py-2.5 rounded-full bg-neutral-800 hover:bg-neutral-700 text-xs font-bold uppercase tracking-widest transition-colors"
-              >
-                Enviar otra consulta
-              </button>
-            </div>
-
-            <form id="contact-form" class="space-y-6">
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label class="block text-[10px] font-bold uppercase tracking-widest text-neutral-300 mb-2">Nombre Completo *</label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Tu nombre"
-                    class="w-full px-4 py-3 rounded-xl bg-neutral-950 border border-neutral-800 focus:border-[#F59E0B] focus:outline-none text-xs text-white placeholder-neutral-600 transition-colors"
-                  />
-                </div>
-                <div>
-                  <label class="block text-[10px] font-bold uppercase tracking-widest text-neutral-300 mb-2">Correo Corporativo *</label>
-                  <input
-                    type="email"
-                    required
-                    placeholder="correo@empresa.com"
-                    class="w-full px-4 py-3 rounded-xl bg-neutral-950 border border-neutral-800 focus:border-[#F59E0B] focus:outline-none text-xs text-white placeholder-neutral-600 transition-colors"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label class="block text-[10px] font-bold uppercase tracking-widest text-neutral-300 mb-2">Área de Interés</label>
-                <select class="w-full px-4 py-3 rounded-xl bg-neutral-950 border border-neutral-800 focus:border-[#F59E0B] focus:outline-none text-xs text-white transition-colors">
-                  <option>Investigación de Mercados y Viabilidad</option>
-                  <option>Dashboards y Business Intelligence</option>
-                  <option>Auditoría de Consumidor & Journey</option>
-                  <option>Diagnóstico y Estrategia Comercial</option>
-                </select>
-              </div>
-
-              <div>
-                <label class="block text-[10px] font-bold uppercase tracking-widest text-neutral-300 mb-2">Detalle del Reto *</label>
-                <textarea
-                  required
-                  rows="4"
-                  placeholder="Describe brevemente tu objetivo comercial o de investigación..."
-                  class="w-full px-4 py-3 rounded-xl bg-neutral-950 border border-neutral-800 focus:border-[#F59E0B] focus:outline-none text-xs text-white placeholder-neutral-600 transition-colors resize-none"
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                class="w-full py-4 rounded-xl bg-[#F59E0B] hover:bg-amber-400 text-neutral-950 font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer shadow-[0_0_15px_rgba(245,158,11,0.2)] hover:shadow-[0_0_20px_rgba(245,158,11,0.4)]"
-              >
-                <i data-lucide="send" class="w-4 h-4"></i>
-                <span>SOLICITAR CONSULTORÍA INICIAL</span>
-              </button>
-            </form>
-          </div>
-        </div>
-
+        <!-- Indicador 4 -->
+        <div class="step-indicator inactive" data-step="4">4</div>
       </div>
+
+      <!-- CAMPO TRAMPA HONEYPOT ANTI-SPAM (INVISIBLE PARA HUMANOS) -->
+      <input type="text" id="hp-trap" name="website_url_check" style="display:none !important;" tabindex="-1" autocomplete="off" />
+
+      <!-- PASO 1: DATOS DE CONTACTO (CON FILTRO ANTI-SPAM) -->
+      <div class="step-content active" id="step-1">
+        <p class="text-xs font-semibold uppercase tracking-widest text-[#B59963] mb-1">PASO 1 // IDENTIFICACIÓN</p>
+        <h3 class="text-lg sm:text-xl font-bold uppercase text-white mb-4">¿Con quién tenemos el gusto de colaborar?</h3>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-[#B59963] font-semibold mb-1.5">Nombre Completo *</label>
+            <input type="text" id="input-name" placeholder="Ej. Carlos Mendoza" class="w-full bg-[#1E2A2A] border border-[#B59963]/40 rounded-xl py-3 px-4 text-sm text-white placeholder-neutral-400 focus:outline-none focus:border-[#B59963] transition-colors" />
+          </div>
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-[#B59963] font-semibold mb-1.5">Empresa o Marca</label>
+            <input type="text" id="input-company" placeholder="Ej. Grupo Comercial Innova" class="w-full bg-[#1E2A2A] border border-[#B59963]/40 rounded-xl py-3 px-4 text-sm text-white placeholder-neutral-400 focus:outline-none focus:border-[#B59963] transition-colors" />
+          </div>
+          <div class="sm:col-span-2">
+            <div class="flex items-center justify-between mb-1.5">
+              <label class="block text-xs uppercase tracking-wider text-[#B59963] font-semibold">Correo Electrónico Real *</label>
+              <span class="text-[10px] text-neutral-400 uppercase tracking-wider">Filtro anti-spam activo</span>
+            </div>
+            <input type="email" id="input-email" placeholder="carlos@empresa.com o tu@gmail.com" class="w-full bg-[#1E2A2A] border border-[#B59963]/40 rounded-xl py-3 px-4 text-sm text-white placeholder-neutral-400 focus:outline-none focus:border-[#B59963] transition-colors" />
+            <!-- Mensaje de error de validación anti-spam -->
+            <p id="email-error" class="text-xs text-red-400 mt-2 font-medium hidden flex items-center gap-1.5">
+              <svg class="w-4 h-4 shrink-0 text-red-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+              <span>Ingresa un correo real válido (ej. usuario@empresa.com o gmail.com). Correos temporales o falsos no son admitidos.</span>
+            </p>
+          </div>
+          <div class="sm:col-span-2">
+            <label class="block text-xs uppercase tracking-wider text-[#B59963] font-semibold mb-1.5">Teléfono / WhatsApp</label>
+            <input type="tel" id="input-phone" placeholder="+52 55 1234 5678" class="w-full bg-[#1E2A2A] border border-[#B59963]/40 rounded-xl py-3 px-4 text-sm text-white placeholder-neutral-400 focus:outline-none focus:border-[#B59963] transition-colors" />
+          </div>
+        </div>
+      </div>
+
+      <!-- PASO 2: TIPO DE SOLUCIÓN -->
+      <div class="step-content" id="step-2">
+        <p class="text-xs font-semibold uppercase tracking-widest text-[#B59963] mb-1">PASO 2 // OBJETIVO COMERCIAL</p>
+        <h3 class="text-lg sm:text-xl font-bold uppercase text-white mb-4">¿Qué servicio requieres cotizar?</h3>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="service-options">
+          <button type="button" class="btn-option active p-4 rounded-xl text-left border transition-all text-xs font-semibold uppercase tracking-wider bg-[#B59963] text-[#1E2A2A] border-[#B59963]" data-value="Asesoría en Business Intelligence">
+            01. Asesoría en Business Intelligence
+          </button>
+          <button type="button" class="btn-option p-4 rounded-xl text-left border transition-all text-xs font-semibold uppercase tracking-wider bg-[#1E2A2A] text-white border-[#B59963]/30 hover:border-[#B59963]" data-value="Sitios Web y Publicidad Dirigida">
+            02. Sitios Web y Publicidad Dirigida
+          </button>
+          <button type="button" class="btn-option p-4 rounded-xl text-left border transition-all text-xs font-semibold uppercase tracking-wider bg-[#1E2A2A] text-white border-[#B59963]/30 hover:border-[#B59963]" data-value="Estudios de Mercado Reales">
+            03. Estudios de Mercado Reales
+          </button>
+          <button type="button" class="btn-option p-4 rounded-xl text-left border transition-all text-xs font-semibold uppercase tracking-wider bg-[#1E2A2A] text-white border-[#B59963]/30 hover:border-[#B59963]" data-value="Asesoría y Marketing Tradicional">
+            04. Asesoría y Marketing Tradicional
+          </button>
+          <button type="button" class="btn-option sm:col-span-2 p-4 rounded-xl text-left border transition-all text-xs font-semibold uppercase tracking-wider bg-[#1E2A2A] text-white border-[#B59963]/30 hover:border-[#B59963]" data-value="Detección de Áreas de Mejora (Diagnóstico Integral)">
+            05. Detección de Áreas de Mejora (Diagnóstico Metodológico)
+          </button>
+        </div>
+
+        <div class="mt-4">
+          <label class="block text-xs uppercase tracking-wider text-[#B59963] font-semibold mb-1.5">¿Cuál es tu objetivo primordial?</label>
+          <input type="text" id="input-objective" placeholder="Ej. Aumentar ventas y rentabilidad comercial este trimestre" class="w-full bg-[#1E2A2A] border border-[#B59963]/40 rounded-xl p-3 text-sm text-white placeholder-neutral-400 focus:outline-none focus:border-[#B59963] transition-colors" />
+        </div>
+      </div>
+
+      <!-- PASO 3: DETALLES Y PRESUPUESTO -->
+      <div class="step-content" id="step-3">
+        <p class="text-xs font-semibold uppercase tracking-widest text-[#B59963] mb-1">PASO 3 // ESPECIFICACIONES & PRESUPUESTO</p>
+        <h3 class="text-lg sm:text-xl font-bold uppercase text-white mb-4">Detalles y expectativas de entrega</h3>
+        
+        <div class="mb-4">
+          <label class="block text-xs uppercase tracking-wider text-[#B59963] font-semibold mb-1.5">Rango Estimado de Presupuesto</label>
+          <div class="grid grid-cols-3 gap-2" id="budget-options">
+            <button type="button" class="btn-budget p-3 rounded-xl border text-center transition-all text-[11px] font-semibold uppercase bg-[#1E2A2A] text-white border-[#B59963]/30 hover:border-[#B59963]" data-value="Inicial / Ágil">
+              Inicial / Ágil
+            </button>
+            <button type="button" class="btn-budget active p-3 rounded-xl border text-center transition-all text-[11px] font-semibold uppercase bg-[#B59963] text-[#1E2A2A] border-[#B59963] font-bold" data-value="Estándar / Corporativo">
+              Estándar / Corporativo
+            </button>
+            <button type="button" class="btn-budget p-3 rounded-xl border text-center transition-all text-[11px] font-semibold uppercase bg-[#1E2A2A] text-white border-[#B59963]/30 hover:border-[#B59963]" data-value="Integral / A la Medida">
+              Integral / A la Medida
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-[#B59963] font-semibold mb-1.5">Cuéntanos más sobre tus requerimientos o situación actual</label>
+          <textarea id="input-details" rows="3" placeholder="Describe brevemente el giro de tu empresa, productos principales o problemas que deseas solucionar..." class="w-full bg-[#1E2A2A] border border-[#B59963]/40 rounded-xl p-3 text-sm text-white placeholder-neutral-400 focus:outline-none focus:border-[#B59963] transition-colors resize-none"></textarea>
+        </div>
+      </div>
+
+      <!-- PASO 4: CONFIRMACIÓN Y ENVÍO A GMAIL -->
+      <div class="step-content" id="step-4">
+        <div class="text-center py-2 space-y-4">
+          <div class="w-14 h-14 rounded-full bg-[#B59963]/20 border border-[#B59963] flex items-center justify-center mx-auto text-[#B59963]">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+            </svg>
+          </div>
+
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-widest text-[#B59963] mb-1">PASO FINAL // REVISIÓN Y ENVÍO</p>
+            <h3 class="text-xl sm:text-2xl font-bold uppercase text-white">¡Tu cotización está lista para ser enviada!</h3>
+            <p class="text-sm text-white font-normal max-w-md mx-auto mt-2 leading-relaxed">
+              Al confirmar, se abrirá tu gestor de correo listo para enviar estos datos verificados directamente a 
+              <strong class="text-[#B59963]">apismarketlab@gmail.com</strong>.
+            </p>
+          </div>
+
+          <!-- Resumen dinámico -->
+          <div class="bg-[#1E2A2A] border border-[#B59963]/30 rounded-xl p-4 text-left max-w-md mx-auto space-y-2 text-xs">
+            <p class="text-white"><span class="text-[#B59963] font-semibold">Cliente:</span> <span id="summary-name">Sin especificar</span></p>
+            <p class="text-white"><span class="text-[#B59963] font-semibold">Correo Verificado:</span> <span id="summary-email" class="text-[#B59963]">correo@ejemplo.com</span></p>
+            <p class="text-white"><span class="text-[#B59963] font-semibold">Servicio:</span> <span id="summary-service">Asesoría</span></p>
+            <p class="text-white"><span class="text-[#B59963] font-semibold">Destino Oficial:</span> apismarketlab@gmail.com</p>
+          </div>
+
+          <button
+            type="button"
+            id="btn-final-send"
+            class="px-8 py-3.5 rounded-full bg-[#B59963] hover:bg-[#c9ab73] text-[#1E2A2A] font-bold text-sm tracking-wider inline-flex items-center gap-2 transition-all shadow-xl cursor-pointer"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span>ENVIAR CORREO DIRECTO A APIS MARKET LAB</span>
+          </button>
+
+          <p id="msg-confirm" class="text-xs text-[#B59963] font-semibold tracking-wider hidden">
+            ✓ Gestor de correo ejecutado. ¡Gracias por confiar en APIS Market Lab!
+          </p>
+        </div>
+      </div>
+
+      <!-- Botones de Navegación del Stepper -->
+      <div class="flex items-center justify-between mt-8 pt-4 border-t border-[#B59963]/20">
+        <button
+          type="button"
+          id="btn-prev-step"
+          class="px-4 py-2 rounded-lg text-xs uppercase font-semibold text-neutral-400 hover:text-white border border-white/10 hover:border-white/20 transition-all opacity-0 pointer-events-none cursor-pointer"
+        >
+          Anterior
+        </button>
+
+        <button
+          type="button"
+          id="btn-next-step"
+          class="px-6 py-2.5 rounded-full bg-[#B59963] hover:bg-[#c9ab73] text-[#1E2A2A] font-bold text-xs uppercase tracking-wider transition-all shadow-lg cursor-pointer"
+        >
+          Siguiente Paso
+        </button>
+      </div>
+
     </div>
   </section>
 
-  <script>
-    // Initialize Lucide SVG icons
-    lucide.createIcons();
+  <!-- ========================================================================= -->
+  <!-- 4. FOOTER GENERAL                                                         -->
+  <!-- ========================================================================= -->
+  <footer class="w-full bg-[#162222] border-t border-[#B59963]/20 py-10 px-5 sm:px-8 md:px-12 text-center sm:text-left">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-7 h-7 rounded-full border border-[#B59963] flex items-center justify-center">
+          <div class="w-2 h-2 rounded-full bg-[#B59963]"></div>
+        </div>
+        <span class="text-xs font-semibold tracking-widest text-white">
+          APIS MARKET LAB // COMMERCIAL INTELLIGENCE
+        </span>
+      </div>
 
-    // Mobile menu toggle logic
-    const btnOpen = document.getElementById('btn-open-menu');
-    const btnClose = document.getElementById('btn-close-menu');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navLinks = document.querySelectorAll('.mobile-nav-link');
+      <div class="text-xs text-white tracking-widest">
+        CORREO OFICIAL:
+        <a href="mailto:apismarketlab@gmail.com" class="text-[#B59963] hover:underline font-semibold ml-1">
+          apismarketlab@gmail.com
+        </a>
+      </div>
+
+      <p class="text-[11px] text-white/70 tracking-widest uppercase">
+        © 2026 APIS Market Lab. Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- 5. JAVASCRIPT: BORDERGLOW + STEPPER CON ANTI-SPAM + OVERLAY MENU          -->
+  <!-- ========================================================================= -->
+  <script>
+    // ---------------------------------------------------------------------------
+    // A. CONTROL DEL MENÚ DESPLEGABLE OVERLAY
+    // ---------------------------------------------------------------------------
+    const btnOpenMenu = document.getElementById('btn-open-menu');
+    const btnCloseMenu = document.getElementById('btn-close-menu');
+    const menuOverlay = document.getElementById('menu-overlay');
+    const menuLinks = document.querySelectorAll('.menu-link');
 
     function openMenu() {
-      mobileMenu.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-4');
-      mobileMenu.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+      menuOverlay.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-4');
+      menuOverlay.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
       document.body.style.overflow = 'hidden';
     }
 
     function closeMenu() {
-      mobileMenu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
-      mobileMenu.classList.add('opacity-0', 'pointer-events-none', '-translate-y-4');
+      menuOverlay.classList.add('opacity-0', 'pointer-events-none', '-translate-y-4');
+      menuOverlay.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
       document.body.style.overflow = '';
     }
 
-    btnOpen.addEventListener('click', openMenu);
-    btnClose.addEventListener('click', closeMenu);
+    if (btnOpenMenu) btnOpenMenu.addEventListener('click', openMenu);
+    if (btnCloseMenu) btnCloseMenu.addEventListener('click', closeMenu);
+    menuLinks.forEach(link => link.addEventListener('click', closeMenu));
 
-    navLinks.forEach(link => {
-      link.addEventListener('click', closeMenu);
+    // ---------------------------------------------------------------------------
+    // B. COMPONENTE BORDERGLOW DE REACT BITS EN JAVASCRIPT VANILLA
+    // ---------------------------------------------------------------------------
+    const glowCards = document.querySelectorAll('.border-glow-card');
+
+    glowCards.forEach(card => {
+      const GRADIENT_POSITIONS = ['80% 55%', '69% 34%', '8% 6%', '41% 38%', '86% 85%', '82% 18%', '51% 4%'];
+      const GRADIENT_KEYS = ['--gradient-one', '--gradient-two', '--gradient-three', '--gradient-four', '--gradient-five', '--gradient-six', '--gradient-seven'];
+      const colors = ['#B59963', '#d4af37', '#e6c887'];
+      const COLOR_MAP = [0, 1, 2, 0, 1, 2, 1];
+
+      for (let i = 0; i < 7; i++) {
+        const c = colors[COLOR_MAP[i]];
+        card.style.setProperty(GRADIENT_KEYS[i], `radial-gradient(at ${GRADIENT_POSITIONS[i]}, ${c} 0px, transparent 50%)`);
+      }
+      card.style.setProperty('--gradient-base', `linear-gradient(${colors[0]} 0 100%)`);
+
+      function handlePointerMove(e) {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const cx = rect.width / 2;
+        const cy = rect.height / 2;
+        const dx = x - cx;
+        const dy = y - cy;
+
+        let kx = Infinity, ky = Infinity;
+        if (dx !== 0) kx = cx / Math.abs(dx);
+        if (dy !== 0) ky = cy / Math.abs(dy);
+        const edge = Math.min(Math.max(1 / Math.min(kx, ky), 0), 1);
+
+        let degrees = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
+        if (degrees < 0) degrees += 360;
+
+        card.style.setProperty('--edge-proximity', (edge * 100).toFixed(3));
+        card.style.setProperty('--cursor-angle', `${degrees.toFixed(3)}deg`);
+      }
+
+      card.addEventListener('pointermove', handlePointerMove);
+      card.addEventListener('pointerleave', () => {
+        card.style.setProperty('--edge-proximity', '0');
+      });
     });
 
-    // Interactive contact form logic
-    const contactForm = document.getElementById('contact-form');
-    const formSuccess = document.getElementById('form-success');
-    const btnReset = document.getElementById('btn-reset-form');
+    // ---------------------------------------------------------------------------
+    // C. COMPONENTE STEPPER CON FILTRO ANTI-SPAM ESTRICTO (GMAIL)
+    // ---------------------------------------------------------------------------
+    let currentStep = 1;
+    const totalSteps = 4;
 
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      contactForm.classList.add('hidden');
-      formSuccess.classList.remove('hidden');
-      lucide.createIcons();
+    const indicators = document.querySelectorAll('.step-indicator');
+    const contents = document.querySelectorAll('.step-content');
+    const btnPrev = document.getElementById('btn-prev-step');
+    const btnNext = document.getElementById('btn-next-step');
+    const emailInput = document.getElementById('input-email');
+    const emailError = document.getElementById('email-error');
+    const hpTrap = document.getElementById('hp-trap');
+
+    const formState = {
+      name: '',
+      company: '',
+      email: '',
+      phone: '',
+      service: 'Asesoría en Business Intelligence',
+      objective: '',
+      budget: 'Estándar / Corporativo',
+      details: ''
+    };
+
+    // Lista negra de dominios de correos desechables, temporales y ficticios
+    const DISPOSABLE_DOMAINS = [
+      'mailinator.com', 'tempmail.com', '10minutemail.com', 'guerrillamail.com',
+      'trashmail.com', 'yopmail.com', 'sharklasers.com', 'fakeinbox.com',
+      'dispostable.com', 'getairmail.com', 'throwawaymail.com', 'mohmal.com',
+      'emailondeck.com', 'temp-mail.org', 'test.com', 'asdf.com', 'fake.com',
+      'example.com', 'nada.ltd', 'tempmailo.com', 'mytemp.email', 'dropmail.me'
+    ];
+
+    // Función de validación de correo real anti-spam
+    function validateRealEmail(email) {
+      if (!email) return false;
+      const cleanEmail = email.trim().toLowerCase();
+
+      // Validación de formato estándar RFC 5322
+      const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
+      if (!emailRegex.test(cleanEmail)) return false;
+
+      const parts = cleanEmail.split('@');
+      if (parts.length !== 2) return false;
+
+      const user = parts[0];
+      const domain = parts[1];
+
+      // Longitud mínima
+      if (user.length < 2 || domain.length < 4) return false;
+
+      // Validación de extensión de dominio válida (al menos 2 caracteres en el TLD)
+      const domainParts = domain.split('.');
+      const tld = domainParts[domainParts.length - 1];
+      if (!tld || tld.length < 2) return false;
+
+      // Verificar que el dominio no esté en la lista de correos desechables
+      if (DISPOSABLE_DOMAINS.includes(domain)) return false;
+
+      // Rechazar patrones falsos obvios
+      if (/^(test|asdf|qwerty|admin|fake|prueba|123456)$/.test(user)) return false;
+      if (/^(test|asdf|fake|ejemplo|aaa|abc)$/.test(domainParts[0])) return false;
+
+      return true;
+    }
+
+    // Selección de opciones de servicio en el paso 2
+    const serviceButtons = document.querySelectorAll('#service-options .btn-option');
+    serviceButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        serviceButtons.forEach(b => {
+          b.classList.remove('bg-[#B59963]', 'text-[#1E2A2A]', 'border-[#B59963]');
+          b.classList.add('bg-[#1E2A2A]', 'text-white', 'border-[#B59963]/30');
+        });
+        btn.classList.add('bg-[#B59963]', 'text-[#1E2A2A]', 'border-[#B59963]');
+        btn.classList.remove('bg-[#1E2A2A]', 'text-white', 'border-[#B59963]/30');
+        formState.service = btn.getAttribute('data-value');
+      });
     });
 
-    btnReset.addEventListener('click', () => {
-      contactForm.reset();
-      formSuccess.classList.add('hidden');
-      contactForm.classList.remove('hidden');
+    // Selección de opciones de presupuesto en el paso 3
+    const budgetButtons = document.querySelectorAll('#budget-options .btn-budget');
+    budgetButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        budgetButtons.forEach(b => {
+          b.classList.remove('bg-[#B59963]', 'text-[#1E2A2A]', 'border-[#B59963]', 'font-bold');
+          b.classList.add('bg-[#1E2A2A]', 'text-white', 'border-[#B59963]/30');
+        });
+        btn.classList.add('bg-[#B59963]', 'text-[#1E2A2A]', 'border-[#B59963]', 'font-bold');
+        btn.classList.remove('bg-[#1E2A2A]', 'text-white', 'border-[#B59963]/30');
+        formState.budget = btn.getAttribute('data-value');
+      });
     });
+
+    // Validación interactiva del email
+    if (emailInput) {
+      emailInput.addEventListener('input', () => {
+        if (emailError) emailError.classList.add('hidden');
+        emailInput.classList.remove('border-red-400');
+        emailInput.classList.add('border-[#B59963]/40');
+      });
+    }
+
+    function updateStepperUI() {
+      // Contenidos
+      contents.forEach(content => content.classList.remove('active'));
+      const activeContent = document.getElementById(`step-${currentStep}`);
+      if (activeContent) activeContent.classList.add('active');
+
+      // Indicadores
+      indicators.forEach(ind => {
+        const stepNum = parseInt(ind.getAttribute('data-step'), 10);
+        ind.classList.remove('active', 'complete', 'inactive');
+        if (stepNum === currentStep) {
+          ind.classList.add('active');
+          ind.innerHTML = stepNum;
+        } else if (stepNum < currentStep) {
+          ind.classList.add('complete');
+          ind.innerHTML = `<svg class="w-4 h-4 text-[#1E2A2A]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>`;
+        } else {
+          ind.classList.add('inactive');
+          ind.innerHTML = stepNum;
+        }
+      });
+
+      // Líneas de conexión
+      for (let i = 1; i <= 3; i++) {
+        const conn = document.getElementById(`connector-${i}`);
+        if (conn) {
+          conn.style.width = currentStep > i ? '100%' : '0%';
+        }
+      }
+
+      // Botón Anterior
+      if (currentStep === 1) {
+        btnPrev.classList.add('opacity-0', 'pointer-events-none');
+      } else {
+        btnPrev.classList.remove('opacity-0', 'pointer-events-none');
+      }
+
+      // Botón Siguiente / Enviar
+      if (currentStep === totalSteps) {
+        btnNext.textContent = 'Enviar Cotización';
+      } else {
+        btnNext.textContent = 'Siguiente Paso';
+      }
+
+      // Actualizar resumen en el paso final
+      if (currentStep === 4) {
+        syncFormValues();
+        const summaryName = document.getElementById('summary-name');
+        const summaryEmail = document.getElementById('summary-email');
+        const summaryService = document.getElementById('summary-service');
+        if (summaryName) summaryName.textContent = `${formState.name || 'Sin especificar'} (${formState.company || 'Independiente'})`;
+        if (summaryEmail) summaryEmail.textContent = formState.email;
+        if (summaryService) summaryService.textContent = `${formState.service} [${formState.budget}]`;
+      }
+    }
+
+    function syncFormValues() {
+      const nameEl = document.getElementById('input-name');
+      const compEl = document.getElementById('input-company');
+      const emailEl = document.getElementById('input-email');
+      const phoneEl = document.getElementById('input-phone');
+      const objEl = document.getElementById('input-objective');
+      const detEl = document.getElementById('input-details');
+
+      if (nameEl) formState.name = nameEl.value.trim();
+      if (compEl) formState.company = compEl.value.trim();
+      if (emailEl) formState.email = emailEl.value.trim();
+      if (phoneEl) formState.phone = phoneEl.value.trim();
+      if (objEl) formState.objective = objEl.value.trim();
+      if (detEl) formState.details = detEl.value.trim();
+    }
+
+    function sendEmailToApis() {
+      syncFormValues();
+
+      // Bloqueo si el honeypot fue llenado por un bot
+      if (hpTrap && hpTrap.value) {
+        console.warn('Bot detected by honeypot.');
+        return;
+      }
+
+      // Verificación estricta final de correo real
+      if (!validateRealEmail(formState.email)) {
+        currentStep = 1;
+        updateStepperUI();
+        if (emailError) emailError.classList.remove('hidden');
+        if (emailInput) {
+          emailInput.focus();
+          emailInput.classList.add('border-red-400');
+        }
+        return;
+      }
+
+      const subject = encodeURIComponent(`Solicitud de Cotización - ${formState.service} [${formState.company || formState.name || 'Cliente'}]`);
+      const body = encodeURIComponent(
+        `Hola equipo APIS Market Lab,\n\n` +
+        `Deseo solicitar una cotización formal para el siguiente servicio:\n\n` +
+        `• Servicio: ${formState.service}\n` +
+        `• Nombre del Cliente: ${formState.name || 'No especificado'}\n` +
+        `• Empresa / Marca: ${formState.company || 'No especificada'}\n` +
+        `• Correo de Contacto: ${formState.email}\n` +
+        `• Teléfono / WhatsApp: ${formState.phone || 'No especificado'}\n` +
+        `• Objetivo Principal: ${formState.objective || 'No especificado'}\n` +
+        `• Rango de Presupuesto: ${formState.budget}\n` +
+        `• Detalles del Proyecto: ${formState.details || 'Sin notas adicionales'}\n\n` +
+        `Mensaje validado y enviado desde la plataforma oficial de APIS Market Lab.`
+      );
+
+      window.open(`mailto:apismarketlab@gmail.com?subject=${subject}&body=${body}`, '_blank');
+      
+      const msgConfirm = document.getElementById('msg-confirm');
+      if (msgConfirm) msgConfirm.classList.remove('hidden');
+    }
+
+    btnNext.addEventListener('click', () => {
+      syncFormValues();
+
+      // Validación estricta en el paso 1 antes de permitir avanzar
+      if (currentStep === 1) {
+        if (!validateRealEmail(formState.email)) {
+          if (emailError) emailError.classList.remove('hidden');
+          if (emailInput) {
+            emailInput.focus();
+            emailInput.classList.add('border-red-400');
+          }
+          return;
+        } else {
+          if (emailError) emailError.classList.add('hidden');
+          if (emailInput) emailInput.classList.remove('border-red-400');
+        }
+      }
+
+      if (currentStep < totalSteps) {
+        currentStep++;
+        updateStepperUI();
+      } else {
+        sendEmailToApis();
+      }
+    });
+
+    btnPrev.addEventListener('click', () => {
+      if (currentStep > 1) {
+        currentStep--;
+        updateStepperUI();
+      }
+    });
+
+    const btnFinalSend = document.getElementById('btn-final-send');
+    if (btnFinalSend) btnFinalSend.addEventListener('click', sendEmailToApis);
+
+    // Inicializar Stepper
+    updateStepperUI();
   </script>
 </body>
 </html>
